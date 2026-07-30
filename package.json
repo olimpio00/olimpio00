@@ -1,0 +1,19 @@
+{
+  "name": "olimpio00-profile",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Gerador do README de perfil de olimpio00 — assets SVG e conteúdo com dados ao vivo da API do GitHub.",
+  "scripts": {
+    "build": "npm run build:assets && npm run build:readme",
+    "build:assets": "node scripts/build-header.mjs && node scripts/build-stats.mjs",
+    "build:readme": "node scripts/generate-readme.mjs",
+    "build:header": "node scripts/build-header.mjs",
+    "build:stats": "node scripts/build-stats.mjs",
+    "preview": "node scripts/preview.mjs",
+    "clean": "node -e \"require('node:fs').rmSync('.cache',{recursive:true,force:true})\""
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

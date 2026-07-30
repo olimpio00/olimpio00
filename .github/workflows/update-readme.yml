@@ -1,0 +1,50 @@
+name: Atualizar README
+
+on:
+  schedule:
+    # 05:17 UTC = 02:17 em Brasília. Minuto "quebrado" de propósito: o cron do
+    # GitHub atrasa em horários cheios por causa da fila global.
+    - cron: '17 5 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'data/**'
+      - 'scripts/**'
+      - 'package.json'
+      - '.github/workflows/update-readme.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-readme
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Gerar assets e README
+        env:
+          # Eleva o rate limit da API de 60 para 5000 req/h
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run build
+
+      - name: Commitar se houve mudança
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md assets
+          if git diff --staged --quiet; then
+            echo 'Nada mudou.'
+          else
+            git commit -m 'chore: atualiza README e assets [skip ci]'
+            git push
+          fi

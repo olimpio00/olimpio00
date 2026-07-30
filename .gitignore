@@ -1,0 +1,7 @@
+# Cache local das respostas da API do GitHub (TTL de 30 min)
+.cache/
+
+node_modules/
+npm-debug.log*
+.DS_Store
+Thumbs.db

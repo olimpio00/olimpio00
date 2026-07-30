@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="260" viewBox="0 0 1000 260" role="img" aria-label="Olímpio — Fullstack Developer">
+  <title>Olímpio — Fullstack Developer</title>
+  <defs>
+    <linearGradient id="nameFill" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="520" y2="0" spreadMethod="reflect">
+      <stop offset="0" stop-color="#e8eef9"/>
+      <stop offset="0.5" stop-color="#4d9fff"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+      <animateTransform attributeName="gradientTransform" type="translate"
+                        values="-520 0; 520 0; -520 0" dur="11s" repeatCount="indefinite"/>
+    </linearGradient>
+
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4d9fff"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+
+    <linearGradient id="rule" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1000" y2="0">
+      <stop offset="0" stop-color="#4d9fff" stop-opacity="0.9"/>
+      <stop offset="0.55" stop-color="#8b5cf6" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#3fcf8e" stop-opacity="0"/>
+    </linearGradient>
+
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.2" fill="#1a2436"/>
+    </pattern>
+
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="58"/>
+    </filter>
+
+    <clipPath id="card">
+      <rect x="0" y="0" width="1000" height="260" rx="18"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#card)">
+    <rect width="1000" height="260" fill="#0b0f19"/>
+    <rect width="1000" height="260" fill="url(#dots)" opacity="0.75"/>
+
+    <g filter="url(#soft)" opacity="0.5">
+      <circle cx="855" cy="55" r="120" fill="#8b5cf6">
+        <animateTransform attributeName="transform" type="translate"
+                          values="0 0; -26 24; 0 0" dur="15s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="760" cy="235" r="100" fill="#3fcf8e">
+        <animateTransform attributeName="transform" type="translate"
+                          values="0 0; 30 -20; 0 0" dur="19s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="120" cy="245" r="90" fill="#4d9fff">
+        <animateTransform attributeName="transform" type="translate"
+                          values="0 0; 18 14; 0 0" dur="17s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+
+    <rect x="44" y="54" width="5" height="152" rx="2.5" fill="url(#bar)">
+      <animate attributeName="height" from="0" to="152" dur="0.7s" fill="freeze"/>
+    </rect>
+
+    <text x="70" y="122" font-family="'Segoe UI','SF Pro Display',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="74" font-weight="800"
+          letter-spacing="-2" fill="url(#nameFill)" opacity="0">
+      <animate attributeName="opacity" to="1" dur="0.7s" begin="0.15s" fill="freeze"/>
+      Olímpio
+    </text>
+
+    
+    <g opacity="1">
+      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.31;0.3333;1"
+               dur="9s" begin="0s" repeatCount="indefinite"/>
+      <text x="74" y="163" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="19" fill="#8b9cb8"
+            >&gt; <tspan fill="#3fcf8e">Fullstack Developer</tspan></text>
+      <rect x="316.4" y="149" width="9" height="18" fill="#3fcf8e">
+        <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.51;1"
+                 dur="1.1s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.31;0.3333;1"
+               dur="9s" begin="3s" repeatCount="indefinite"/>
+      <text x="74" y="163" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="19" fill="#8b9cb8"
+            >&gt; <tspan fill="#3fcf8e">Angular · React Native</tspan></text>
+      <rect x="350.6" y="149" width="9" height="18" fill="#3fcf8e">
+        <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.51;1"
+                 dur="1.1s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.31;0.3333;1"
+               dur="9s" begin="6s" repeatCount="indefinite"/>
+      <text x="74" y="163" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="19" fill="#8b9cb8"
+            >&gt; <tspan fill="#3fcf8e">Go · Node · Python</tspan></text>
+      <rect x="305.0" y="149" width="9" height="18" fill="#3fcf8e">
+        <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.51;1"
+                 dur="1.1s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+    
+    <g opacity="0">
+      <animate attributeName="opacity" to="1" dur="0.5s" begin="0.90s" fill="freeze"/>
+      <rect x="72" y="194" width="100" height="28" rx="14"
+            fill="#10192b" stroke="#1e2a40" stroke-width="1"/>
+      <text x="122" y="212.5" text-anchor="middle"
+            font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="13" fill="#8b9cb8">TypeScript</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" to="1" dur="0.5s" begin="0.99s" fill="freeze"/>
+      <rect x="181" y="194" width="77" height="28" rx="14"
+            fill="#10192b" stroke="#1e2a40" stroke-width="1"/>
+      <text x="219.5" y="212.5" text-anchor="middle"
+            font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="13" fill="#8b9cb8">Angular</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" to="1" dur="0.5s" begin="1.08s" fill="freeze"/>
+      <rect x="267" y="194" width="116" height="28" rx="14"
+            fill="#10192b" stroke="#1e2a40" stroke-width="1"/>
+      <text x="325" y="212.5" text-anchor="middle"
+            font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="13" fill="#8b9cb8">React Native</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" to="1" dur="0.5s" begin="1.17s" fill="freeze"/>
+      <rect x="392" y="194" width="77" height="28" rx="14"
+            fill="#10192b" stroke="#1e2a40" stroke-width="1"/>
+      <text x="430.5" y="212.5" text-anchor="middle"
+            font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="13" fill="#8b9cb8">Node.js</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" to="1" dur="0.5s" begin="1.26s" fill="freeze"/>
+      <rect x="478" y="194" width="38" height="28" rx="14"
+            fill="#10192b" stroke="#1e2a40" stroke-width="1"/>
+      <text x="497" y="212.5" text-anchor="middle"
+            font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="13" fill="#8b9cb8">Go</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" to="1" dur="0.5s" begin="1.35s" fill="freeze"/>
+      <rect x="525" y="194" width="69" height="28" rx="14"
+            fill="#10192b" stroke="#1e2a40" stroke-width="1"/>
+      <text x="559.5" y="212.5" text-anchor="middle"
+            font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="13" fill="#8b9cb8">Python</text>
+    </g>
+
+    <rect x="0" y="257" width="1000" height="3" fill="url(#rule)"/>
+    <rect x="0" y="0" width="1000" height="260" rx="18" fill="none"
+          stroke="#1e2a40" stroke-width="2"/>
+  </g>
+</svg>

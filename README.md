@@ -1,34 +1,36 @@
-<h1 align="center">Olímpio</h1>
+<!--
+  ⚠️  Arquivo gerado por scripts/generate-readme.mjs — não edite à mão.
+      Edite data/profile.json e rode: npm run build
+-->
 
 <p align="center">
-  <strong>Fullstack Developer</strong><br>
-  Angular &amp; React no front, Node/Go/Python no back — de CRUD corporativo a app desktop.
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/main/assets/header-dark.svg?v=6156773d">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/main/assets/header-light.svg?v=6156773d">
+    <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/main/assets/header-dark.svg?v=6156773d" alt="Olímpio — Fullstack Developer" width="100%">
+  </picture>
 </p>
 
 <p align="center">
-  <a href="https://github.com/olimpio00?tab=repositories">
-    <img src="https://img.shields.io/badge/Repositórios-10-1f6feb?style=flat-square&logo=github&logoColor=white" alt="Repositórios">
-  </a>
-  <a href="mailto:olimpio@sellentt.com.br">
-    <img src="https://img.shields.io/badge/Email-contato-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email">
-  </a>
-  <!-- Adicione seu LinkedIn aqui:
-  <a href="https://linkedin.com/in/SEU-USUARIO">
-    <img src="https://img.shields.io/badge/LinkedIn-perfil-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn">
-  </a>
-  -->
+  Angular, React &amp; React Native no front, Node/Go/Python no back — de app mobile a overlay em tempo real.
+</p>
+
+<p align="center">
+  <a href="https://github.com/olimpio00?tab=repositories"><img src="https://img.shields.io/badge/Projetos-11-1f6feb?style=flat-square&logo=github&logoColor=white" alt="Projetos"></a>
+  <a href="mailto:olimpio@sellentt.com.br"><img src="https://img.shields.io/badge/Email-contato-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email"></a>
 </p>
 
 ---
 
 ## Sobre mim
 
-Desenvolvedor fullstack focado em aplicações web. No dia a dia trabalho com **Angular + TypeScript** e backends em **Node.js**, e nos projetos pessoais exploro **Go**, **Python** e integrações com APIs de terceiros (Spotify, YouTube, Supabase).
+Desenvolvedor fullstack focado em aplicações web e mobile. No dia a dia trabalho com **Angular + TypeScript** e backends em **Node.js**, e nos projetos pessoais exploro **Go**, **Python** e integrações com APIs de terceiros (Spotify, YouTube, Supabase).
 
 Gosto de projeto que **roda de ponta a ponta**: interface, API, banco e deploy. A maior parte do que está aqui foi construída assim — não são exercícios soltos, são sistemas completos.
 
 - 🧩 Arquitetura de frontend: separação container/apresentação, custom hooks, organização por feature
 - ⚙️ Backends e integrações: REST, autenticação, permissões por papel, real-time
+- 📱 Mobile com React Native + Expo, consumindo API própria
 - 🖥️ Também construo desktop: GUIs em Python empacotadas como executável
 - 🚀 Deploy: Render, GitHub Actions, Firebase Hosting
 
@@ -47,6 +49,8 @@ Gosto de projeto que **roda de ponta a ponta**: interface, API, banco e deploy. 
 
 ![Angular](https://img.shields.io/badge/Angular-DD0031?style=flat-square&logo=angular&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
+![React Native](https://img.shields.io/badge/React%20Native-61DAFB?style=flat-square&logo=react&logoColor=black)
+![Expo](https://img.shields.io/badge/Expo-000020?style=flat-square&logo=expo&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
@@ -54,6 +58,7 @@ Gosto de projeto que **roda de ponta a ponta**: interface, API, banco e deploy. 
 **Backend, dados & infra**
 
 ![Node.js](https://img.shields.io/badge/Node.js-5FA04E?style=flat-square&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
@@ -63,13 +68,32 @@ Gosto de projeto que **roda de ponta a ponta**: interface, API, banco e deploy. 
 
 ## Projetos em destaque
 
+### 🏥 [Clínica App — Sistema de Gestão de Clínicas](https://github.com/Gabriel00V-dev/Projeto-LP-6)
+
+> **Projeto principal** · aplicação **mobile + API** completa, desenvolvida em equipe — sou o maior contribuidor do repositório (31 de 45 commits).
+
+Plataforma que centraliza dados de clínicas, pacientes e especialidades médicas. Resolve a dispersão de informação e o cadastro duplicado com um controle unificado, e dá ao paciente acesso mobile à busca de clínicas por especialidade.
+
+**Mobile:** `React Native` `Expo SDK 54` `TypeScript` `React Navigation` + design system próprio  
+**API:** `Node.js` `Express` `TypeScript` `Supabase` (PostgreSQL, auth e sync em tempo real)
+
+- 🔐 **Autenticação dupla** — fluxos distintos para paciente e clínica
+- 🔎 Busca avançada com filtro por especialidade médica
+- 📋 CRUD completo de clínicas, pacientes e especialidades
+- 🏗️ Monorepo `mobile/` + `backend/` com workflows de CI
+- 🎨 Componentes de UI próprios, reaproveitados em todas as telas
+
+<sub>Projeto acadêmico — não destinado a uso em produção.</sub>
+
+---
+
 ### 🎛️ [IROS — Overlay](https://github.com/olimpio00/Overlay)
 
 Sistema de **overlay em tempo real para OBS**, controlado pelo navegador. Cria sessões e entrega **editor e viewer separados**, para que o streamer edite em uma janela enquanto o OBS captura a outra — sem recarregar a cena. Suporta texto, imagem, áudio, vídeo, timers e iframes.
 
-`Go` `JavaScript` `HTML/CSS` — backend em Go servindo templates e assets · 125 commits · AGPL-3.0
+`Go` `JavaScript` `HTML/CSS` — backend em Go servindo templates e assets · AGPL-3.0
 
-> Meu projeto mais completo: arquitetura em camadas (`cmd/`, `core/`, `meta/`), estado de sessão em tempo real e configuração via `.env`.
+> Arquitetura em camadas (`cmd/`, `core/`, `meta/`), estado de sessão em tempo real e configuração via `.env`.
 
 ---
 
@@ -79,7 +103,7 @@ Sistema de **gacha** com temática de animes (Bleach, Naruto, One Piece, Dragon 
 
 `TypeScript` `Angular` `Node.js` `GitHub Actions` — monorepo `frontend/` + `backend/` com pipeline de CI
 
-> Modelagem de probabilidade e raridade — a parte divertida é garantir que o drop rate seja justo *e* auditável.
+> Modelagem de probabilidade e raridade — a parte difícil é garantir que o drop rate seja justo *e* auditável.
 
 ---
 
@@ -98,6 +122,7 @@ Estudo prático de **arquitetura de frontend**: refatoração de um `ProductPage
 `React` `TypeScript` `Vite`
 
 Cinco princípios aplicados:
+
 1. Separação de responsabilidades
 2. Divisão container / apresentacional
 3. Extração de custom hooks (`useProducts`)
@@ -151,11 +176,18 @@ CRUD de **missões no universo de Cassian Andor** — infiltração, sabotagem, 
 
 ---
 
-## GitHub
+## GitHub em números
 
 <p align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=olimpio00&show_icons=true&hide_border=true&theme=tokyonight&count_private=true" alt="Estatísticas de olimpio00">
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=olimpio00&layout=compact&hide_border=true&theme=tokyonight&langs_count=8" alt="Linguagens mais usadas">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/main/assets/stats-dark.svg?v=705b70a3">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/main/assets/stats-light.svg?v=705b70a3">
+    <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/main/assets/stats-dark.svg?v=705b70a3" alt="Estatísticas de olimpio00" width="100%">
+  </picture>
+</p>
+
+<p align="center">
+  <sub>Atualizado automaticamente por GitHub Actions a partir da API do GitHub.</sub>
 </p>
 
 ---
@@ -164,7 +196,5 @@ CRUD de **missões no universo de Cassian Andor** — infiltração, sabotagem, 
 
 - 📫 **Email:** [olimpio@sellentt.com.br](mailto:olimpio@sellentt.com.br)
 - 💻 **GitHub:** [@olimpio00](https://github.com/olimpio00)
-<!-- - 💼 **LinkedIn:** [seu-perfil](https://linkedin.com/in/SEU-USUARIO) -->
-<!-- - 🌐 **Portfólio:** https://seusite.com -->
 
 <p align="center"><sub>Aberto a oportunidades e colaborações. 🚀</sub></p>
