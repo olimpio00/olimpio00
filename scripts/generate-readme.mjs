@@ -2,13 +2,35 @@
  * Monta o README.md a partir de data/profile.json + dados ao vivo da API.
  * Textos ficam no JSON; este arquivo só decide layout.
  */
+import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { ASSETS, DATA, ROOT } from './lib/paths.mjs'
 import { collect, shareOf } from './lib/stats.mjs'
 
-const RAW = (login) => `https://raw.githubusercontent.com/${login}/${login}/main`
+/**
+ * Branch usado nas URLs dos assets. Detectado, não fixo: apontar para "main"
+ * num repo em "master" faz as imagens darem 404 e o README aparecer vazio.
+ * Precedência: profile.branch > CI > git local > "main".
+ */
+function detectBranch(override) {
+  if (override) return override
+  if (process.env.GITHUB_REF_NAME) return process.env.GITHUB_REF_NAME
+  try {
+    const out = execFileSync('git', ['rev-parse', '--abbrev-ref', 'HEAD'], {
+      cwd: ROOT,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim()
+    if (out && out !== 'HEAD') return out
+  } catch {
+    // sem git ou fora de um repo — cai no default
+  }
+  return 'main'
+}
+
+const RAW = (login, branch) => `https://raw.githubusercontent.com/${login}/${login}/${branch}`
 
 /**
  * Hash curto do conteúdo do asset, usado como query string.
@@ -34,10 +56,10 @@ const badge = ({ label, color, logo, logoColor = 'white' }) => {
 }
 
 /** <picture> com par claro/escuro — GitHub troca conforme o tema do usuário. */
-const picture = (login, base, alt, v) => `<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="${RAW(login)}/assets/${base}-dark.svg?v=${v}">
-  <source media="(prefers-color-scheme: light)" srcset="${RAW(login)}/assets/${base}-light.svg?v=${v}">
-  <img src="${RAW(login)}/assets/${base}-dark.svg?v=${v}" alt="${alt}" width="100%">
+const picture = (login, branch, base, alt, v) => `<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="${RAW(login, branch)}/assets/${base}-dark.svg?v=${v}">
+  <source media="(prefers-color-scheme: light)" srcset="${RAW(login, branch)}/assets/${base}-light.svg?v=${v}">
+  <img src="${RAW(login, branch)}/assets/${base}-dark.svg?v=${v}" alt="${alt}" width="100%">
 </picture>`
 
 function contribShare(stats, full) {
@@ -75,7 +97,7 @@ function project(p, stats) {
   return out.join('\n').replace(/\n+$/, '')
 }
 
-function render(profile, stats, versions) {
+function render(profile, stats, versions, branch) {
   const { login, name } = profile
   const links = [
     `<a href="https://github.com/${login}?tab=repositories"><img src="https://img.shields.io/badge/Projetos-${stats.projectCount}-1f6feb?style=flat-square&logo=github&logoColor=white" alt="Projetos"></a>`,
@@ -106,7 +128,7 @@ function render(profile, stats, versions) {
 -->
 
 <p align="center">
-  ${picture(login, 'header', `${name} — ${profile.role}`, versions.header).split('\n').join('\n  ')}
+  ${picture(login, branch, 'header', `${name} — ${profile.role}`, versions.header).split('\n').join('\n  ')}
 </p>
 
 <p align="center">
@@ -150,7 +172,7 @@ ${table}
 ## GitHub em números
 
 <p align="center">
-  ${picture(login, 'stats', `Estatísticas de ${login}`, versions.stats).split('\n').join('\n  ')}
+  ${picture(login, branch, 'stats', `Estatísticas de ${login}`, versions.stats).split('\n').join('\n  ')}
 </p>
 
 <p align="center">
@@ -175,6 +197,9 @@ const versions = {
   header: await assetVersion('header'),
   stats: await assetVersion('stats'),
 }
+const branch = detectBranch(profile.branch)
 
-await writeFile(join(ROOT, 'README.md'), render(profile, stats, versions))
-console.log(`✓ README.md — ${profile.featured.length} destaques, ${stats.projectCount} projetos`)
+await writeFile(join(ROOT, 'README.md'), render(profile, stats, versions, branch))
+console.log(
+  `✓ README.md — ${profile.featured.length} destaques, ${stats.projectCount} projetos, branch "${branch}"`
+)

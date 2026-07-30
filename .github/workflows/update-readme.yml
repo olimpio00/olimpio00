@@ -7,7 +7,8 @@ on:
     - cron: '17 5 * * *'
   workflow_dispatch:
   push:
-    branches: [main]
+    # Os dois nomes: o repo pode estar em master e o Action não dispararia
+    branches: [main, master]
     paths:
       - 'data/**'
       - 'scripts/**'

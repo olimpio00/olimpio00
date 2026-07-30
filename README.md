@@ -5,9 +5,9 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/main/assets/header-dark.svg?v=6156773d">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/main/assets/header-light.svg?v=6156773d">
-    <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/main/assets/header-dark.svg?v=6156773d" alt="Olímpio — Fullstack Developer" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-dark.svg?v=6156773d">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-light.svg?v=6156773d">
+    <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-dark.svg?v=6156773d" alt="Olímpio — Fullstack Developer" width="100%">
   </picture>
 </p>
 
@@ -180,9 +180,9 @@ CRUD de **missões no universo de Cassian Andor** — infiltração, sabotagem, 
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/main/assets/stats-dark.svg?v=705b70a3">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/main/assets/stats-light.svg?v=705b70a3">
-    <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/main/assets/stats-dark.svg?v=705b70a3" alt="Estatísticas de olimpio00" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-dark.svg?v=705b70a3">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-light.svg?v=705b70a3">
+    <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-dark.svg?v=705b70a3" alt="Estatísticas de olimpio00" width="100%">
   </picture>
 </p>
 

@@ -6,6 +6,8 @@
   "email": "olimpio@sellentt.com.br",
   "linkedin": "",
   "website": "",
+  "_comment_branch": "Deixe vazio para detectar automaticamente (git/CI). Só preencha para forçar.",
+  "branch": "",
 
   "header": {
     "rotating": ["Fullstack Developer", "Angular · React Native", "Go · Node · Python"],
