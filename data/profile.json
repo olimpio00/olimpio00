@@ -10,6 +10,7 @@
   "branch": "",
 
   "header": {
+    "opening": "Há muito tempo, num repositório muito, muito distante…",
     "rotating": ["Fullstack Developer", "Angular · React Native", "Go · Node · Python"],
     "chips": ["TypeScript", "Angular", "React Native", "Node.js", "Go", "Python"]
   },

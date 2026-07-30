@@ -11,7 +11,8 @@
     "build:header": "node scripts/build-header.mjs",
     "build:stats": "node scripts/build-stats.mjs",
     "preview": "node scripts/preview.mjs",
-    "clean": "node -e \"require('node:fs').rmSync('.cache',{recursive:true,force:true})\""
+    "clean": "node -e \"require('node:fs').rmSync('.cache',{recursive:true,force:true})\"",
+    "snapshot": "node scripts/snapshot.mjs"
   },
   "engines": {
     "node": ">=20"
