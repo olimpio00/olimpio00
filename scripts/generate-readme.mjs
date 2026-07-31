@@ -65,40 +65,108 @@ const picture = (login, branch, base, alt, v) => `<picture>
 function contribShare(stats, full) {
   const r = shareOf(stats, full)
   if (!r || !r.total) return 'colaborei no desenvolvimento'
-  const share = `${r.mine} de ${r.total} commits`
+  const share = commitShare(stats, full)
   return r.mineIsTop
     ? `sou o maior contribuidor do repositório (${share})`
     : `contribuí com ${share}`
 }
 
-function project(p, stats) {
-  const url = `https://github.com/${p.repo}`
-  const extra = (p.links ?? []).map((l) => ` · [${l.label}](${l.url})`).join('')
-  const out = [`### ${p.emoji} [${p.title}](${url})${extra}`, '']
+/**
+ * Só a fração, sem frase em volta — cabe na linha de CLASSIFICAÇÃO do dossiê.
+ * Vazio quando a API não devolve contributors (repo novo, 202 em cache warming):
+ * quem chama remove o separador órfão.
+ */
+function commitShare(stats, full) {
+  const r = shareOf(stats, full)
+  return r?.total ? `${r.mine} de ${r.total} commits` : ''
+}
 
-  if (p.callout) {
-    const text = p.callout.replace(/\{\{contribShare\}\}/g, contribShare(stats, p.repo))
-    out.push(`> ${text}`, '')
-  }
+const fillTokens = (text, stats, repo) =>
+  text
+    .replace(/\{\{contribShare\}\}/g, () => contribShare(stats, repo))
+    .replace(/\{\{commitShare\}\}/g, () => commitShare(stats, repo))
+
+/**
+ * Chip de status da missão. Paleta única (vermelhos escuros) de propósito:
+ * o bloco de registros deve ler como um arquivo classificado, não como um
+ * semáforo — status diferentes se distinguem pelo texto, não pela cor.
+ */
+const STATUS_COLOR = { 'PRIORIDADE MÁXIMA': 'b91c1c' }
+const STATUS_DEFAULT = '5c1113'
+
+function statusBadge(status) {
+  const color = STATUS_COLOR[status] ?? STATUS_DEFAULT
+  return `![${status}](https://img.shields.io/badge/${encodeURIComponent(status).replace(/-/g, '--')}-${color}?style=flat-square)`
+}
+
+/**
+ * Rodapé do registro: código, setor e classificação em letra miúda.
+ * Os rótulos vão em `code span` porque o GitHub remove CSS do README — o
+ * monoespaçado é o único jeito de reproduzir a fileira de metadados do design.
+ */
+function dossier(p, code, stats) {
+  // `{{commitShare}}` pode virar vazio; sem esta limpeza sobra "Solo ·" no fim.
+  const clearance = p.clearance
+    ? fillTokens(p.clearance, stats, p.repo)
+        .replace(/\s*·\s*$/, '')
+        .trim()
+    : ''
+
+  const fields = [
+    `\`${code}\``,
+    p.sector && `\`SETOR\` ${p.sector}`,
+    clearance && `\`CLASSIFICAÇÃO\` ${clearance}`,
+  ].filter(Boolean)
+
+  return `<sub>${fields.join(' &nbsp; ')}</sub>`
+}
+
+function project(p, index, stats) {
+  const url = `https://github.com/${p.repo}`
+  const code = `M-${String(index + 1).padStart(3, '0')}`
+  const extra = (p.links ?? []).map((l) => ` · [${l.label}](${l.url})`).join('')
+  const status = p.status ? ` ${statusBadge(p.status)}` : ''
+  const out = [`### ${p.emoji} [${p.title}](${url})${extra}${status}`, '']
+
+  if (p.callout) out.push(`> ${fillTokens(p.callout, stats, p.repo)}`, '')
 
   out.push(p.body, '')
 
-  // Duas linhas de meta precisam de quebra explícita (dois espaços no fim),
-  // senão o markdown as junta num único parágrafo.
-  if (p.meta?.length) out.push(p.meta.join('  \n'), '')
+  // Uma linha de meta é a stack "pura" e ganha o rótulo ARMAMENTO do design.
+  // Duas ou mais já trazem rótulo próprio (**Mobile:**, **API:**) e precisam de
+  // quebra explícita (dois espaços no fim), senão o markdown as junta num
+  // único parágrafo.
+  if (p.meta?.length === 1) out.push(`\`ARMAMENTO\` · ${p.meta[0]}`, '')
+  else if (p.meta?.length) out.push(p.meta.join('  \n'), '')
+
   if (p.bullets?.length) out.push(p.bullets.map((b) => `- ${b}`).join('\n'), '')
   if (p.ordered?.length) {
     if (p.orderedTitle) out.push(p.orderedTitle, '')
     out.push(p.ordered.map((o, i) => `${i + 1}. ${o}`).join('\n'), '')
   }
   if (p.quote) out.push(`> ${p.quote}`, '')
+  out.push(dossier(p, code, stats), '')
   if (p.footnote) out.push(`<sub>${p.footnote}</sub>`, '')
 
   return out.join('\n').replace(/\n+$/, '')
 }
 
+/** Títulos das seções. Vêm do JSON; os defaults existem só para não quebrar. */
+const SECTIONS = {
+  about: 'Sobre mim',
+  stack: 'Stack',
+  featured: 'Projetos em destaque',
+  featuredNote: '',
+  stats: 'GitHub em números',
+  contact: 'Contato',
+}
+
 function render(profile, stats, versions, branch) {
   const { login, name } = profile
+  const S = { ...SECTIONS, ...profile.sections }
+  const featuredNote = S.featuredNote
+    ? `\n<sub>${S.featuredNote.replace(/\{\{count\}\}/g, profile.featured.length)}</sub>\n`
+    : ''
   const links = [
     `<a href="https://github.com/${login}?tab=repositories"><img src="https://img.shields.io/badge/Projetos-${stats.projectCount}-1f6feb?style=flat-square&logo=github&logoColor=white" alt="Projetos"></a>`,
     `<a href="mailto:${profile.email}"><img src="https://img.shields.io/badge/Email-contato-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email"></a>`,
@@ -141,7 +209,7 @@ function render(profile, stats, versions, branch) {
 
 ---
 
-## Sobre mim
+## ${S.about}
 
 ${profile.about.paragraphs.join('\n\n')}
 
@@ -149,7 +217,7 @@ ${profile.about.bullets.map((b) => `- ${b}`).join('\n')}
 
 ---
 
-## Stack
+## ${S.stack}
 
 ${profile.stack
   .map((g) => `**${g.group}**\n\n${g.badges.map(badge).join('\n')}`)
@@ -157,9 +225,9 @@ ${profile.stack
 
 ---
 
-## Projetos em destaque
-
-${profile.featured.map((p) => project(p, stats)).join('\n\n---\n\n')}
+## ${S.featured}
+${featuredNote}
+${profile.featured.map((p, i) => project(p, i, stats)).join('\n\n---\n\n')}
 
 ---
 
@@ -169,7 +237,7 @@ ${table}
 
 ---
 
-## GitHub em números
+## ${S.stats}
 
 <p align="center">
   ${picture(login, branch, 'stats', `Estatísticas de ${login}`, versions.stats).split('\n').join('\n  ')}
@@ -181,7 +249,7 @@ ${table}
 
 ---
 
-## Contato
+## ${S.contact}
 
 - 📫 **Email:** [${profile.email}](mailto:${profile.email})
 - 💻 **GitHub:** [@${login}](https://github.com/${login})

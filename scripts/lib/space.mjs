@@ -45,7 +45,7 @@ const PRESETS = {
   header: {
     space: [
       { cx: 858, cy: 52, r: 118, fill: 'accent2', drift: '0 0; -26 22; 0 0', dur: 15 },
-      { cx: 120, cy: 252, r: 86, fill: 'accent3', drift: '0 0; 16 14; 0 0', dur: 17 },
+      { cx: 120, cy: 430, r: 96, fill: 'accent3', drift: '0 0; 16 14; 0 0', dur: 17 },
     ],
     desert: [],
   },

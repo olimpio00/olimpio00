@@ -11,8 +11,26 @@
 
   "header": {
     "opening": "Há muito tempo, num repositório muito, muito distante…",
+    "crawl": {
+      "episode": "EPISÓDIO VII",
+      "title": "O PORTFÓLIO",
+      "paragraphs": [
+        "Olímpio é um desenvolvedor fullstack operando entre o front e o back. Angular, React e React Native de um lado; Node, Go e Python do outro.",
+        "Nos arquivos a seguir estão registrados nove sistemas completos, cada um construído de ponta a ponta: interface, API, banco e deploy.",
+        "Role para baixo. Os registros de missão aguardam…"
+      ]
+    },
     "rotating": ["Fullstack Developer", "Angular · React Native", "Go · Node · Python"],
     "chips": ["TypeScript", "Angular", "React Native", "Node.js", "Go", "Python"]
+  },
+
+  "sections": {
+    "about": "Dossiê do operador",
+    "stack": "Arsenal",
+    "featured": "Registros de missão",
+    "featuredNote": "ARQUIVO CENTRAL · {{count}} REGISTROS · ACESSO CONCEDIDO",
+    "stats": "Console de bordo",
+    "contact": "Canal seguro"
   },
 
   "extraRepos": ["Gabriel00V-dev/Projeto-LP-6"],
@@ -72,6 +90,9 @@
       "emoji": "🏥",
       "title": "Clínica App — Sistema de Gestão de Clínicas",
       "repo": "Gabriel00V-dev/Projeto-LP-6",
+      "status": "PRIORIDADE MÁXIMA",
+      "sector": "Núcleo · Coruscant",
+      "clearance": "Equipe · {{commitShare}}",
       "callout": "**Projeto principal** · aplicação **mobile + API** completa, desenvolvida em equipe — {{contribShare}}.",
       "body": "Plataforma que centraliza dados de clínicas, pacientes e especialidades médicas. Resolve a dispersão de informação e o cadastro duplicado com um controle unificado, e dá ao paciente acesso mobile à busca de clínicas por especialidade.",
       "meta": [
@@ -91,14 +112,20 @@
       "emoji": "🎛️",
       "title": "IROS — Overlay",
       "repo": "olimpio00/Overlay",
+      "status": "EM OPERAÇÃO",
+      "sector": "Rede de transmissão",
+      "clearance": "AGPL-3.0 · solo",
       "body": "Sistema de **overlay em tempo real para OBS**, controlado pelo navegador. Cria sessões e entrega **editor e viewer separados**, para que o streamer edite em uma janela enquanto o OBS captura a outra — sem recarregar a cena. Suporta texto, imagem, áudio, vídeo, timers e iframes.",
-      "meta": ["`Go` `JavaScript` `HTML/CSS` — backend em Go servindo templates e assets · AGPL-3.0"],
+      "meta": ["`Go` `JavaScript` `HTML/CSS` — backend em Go servindo templates e assets"],
       "quote": "Arquitetura em camadas (`cmd/`, `core/`, `meta/`), estado de sessão em tempo real e configuração via `.env`."
     },
     {
       "emoji": "🎴",
       "title": "GachArena",
       "repo": "olimpio00/GachArena",
+      "status": "EM OPERAÇÃO",
+      "sector": "Bordas Exteriores",
+      "clearance": "Solo · {{commitShare}}",
       "body": "Sistema de **gacha** com temática de animes (Bleach, Naruto, One Piece, Dragon Ball): abertura de caixas temáticas, raridade de personagens, mecânica de drop expansível e coleção do usuário.",
       "meta": ["`TypeScript` `Angular` `Node.js` `GitHub Actions` — monorepo `frontend/` + `backend/` com pipeline de CI"],
       "quote": "Modelagem de probabilidade e raridade — a parte difícil é garantir que o drop rate seja justo *e* auditável."
@@ -107,6 +134,9 @@
       "emoji": "🛒",
       "title": "ProdutorStore",
       "repo": "olimpio00/produtor-store",
+      "status": "ARQUIVADA",
+      "sector": "Rotas comerciais",
+      "clearance": "Solo",
       "body": "E-commerce em **Angular 17** com catálogo de produtos, consumindo API mockada via `json-server` e proxy de desenvolvimento.",
       "meta": ["`Angular 17` `TypeScript` `JSON Server`"]
     },
@@ -114,6 +144,9 @@
       "emoji": "⚛️",
       "title": "Refactory-React",
       "repo": "olimpio00/Refactory-React",
+      "status": "CONCLUÍDA",
+      "sector": "Treinamento",
+      "clearance": "Estudo de arquitetura",
       "body": "Estudo prático de **arquitetura de frontend**: refatoração de um `ProductPage` monolítico em uma estrutura escalável.",
       "meta": ["`React` `TypeScript` `Vite`"],
       "ordered": [
@@ -129,14 +162,20 @@
       "emoji": "🎵",
       "title": "Player Music",
       "repo": "olimpio00/player-music",
+      "status": "EM OPERAÇÃO",
+      "sector": "Sinais",
+      "clearance": "MIT · desktop",
       "body": "**Player de música desktop** com interface inspirada no Spotify. Suporta MP3/WAV/OGG/FLAC, shuffle inteligente sem repetição, playlists persistidas em JSON, mini-player e **teclas de mídia funcionando em background**.",
-      "meta": ["`Python 3.11` `tkinter` `Pygame` `Mutagen` `PyWin32` `PyInstaller` — MIT"],
+      "meta": ["`Python 3.11` `tkinter` `Pygame` `Mutagen` `PyWin32` `PyInstaller`"],
       "quote": "Empacotado como `.exe` via PyInstaller. Integração com as media keys do Windows foi a parte mais interessante."
     },
     {
       "emoji": "⬇️",
       "title": "Spotify → YouTube Downloader",
       "repo": "olimpio00/Spotify-YouTube-Downloader",
+      "status": "EM OPERAÇÃO",
+      "sector": "Contrabando",
+      "clearance": "Solo · desktop",
       "body": "App desktop para baixar **faixas e playlists do Spotify** (resolvidas via YouTube) em MP3, e vídeos do YouTube de 240p até **4K 60fps com upscaling automático**.",
       "meta": ["`Python` `CustomTkinter` `yt-dlp` `Spotipy` `FFmpeg`"],
       "quote": "Integração com a Spotify Web API + pipeline de conversão em FFmpeg, com progresso em tempo real na UI."
@@ -145,20 +184,26 @@
       "emoji": "🗂️",
       "title": "Star Wars Fan Wiki",
       "repo": "olimpio00/Star-Wars-Fan-Wiki",
+      "status": "AO VIVO",
+      "sector": "Arquivos",
+      "clearance": "MIT · Render",
       "links": [{ "label": "🌐 ao vivo", "url": "https://star-wars-fan-wiki.onrender.com" }],
       "body": "**Gerenciador de arquivos** com tema Star Wars: upload/download, organização em pastas e categorias, autenticação e **permissões por papel** (admin / usuário padrão). Responsivo em mobile.",
-      "meta": ["`Python` `NiceGUI` `Supabase` (auth + storage + database) — MIT · deploy na Render"]
+      "meta": ["`Python` `NiceGUI` `Supabase` (auth + storage + database)"]
     },
     {
       "emoji": "🕵️",
       "title": "Andor Missions",
       "repo": "olimpio00/Andor-Missions",
+      "status": "EM OPERAÇÃO",
+      "sector": "Inteligência rebelde",
+      "clearance": "Solo · {{commitShare}}",
       "body": "CRUD de **missões no universo de Cassian Andor** — infiltração, sabotagem, reconhecimento e exfiltração. Pequeno, rápido e pronto para deploy.",
       "meta": ["`Python` `Flet` `Supabase` — deploy declarativo via `render.yaml`"]
     }
   ],
 
-  "smallTitle": "📓 Projetos de estágio",
+  "smallTitle": "🎓 Missões de treinamento",
   "small": [
     {
       "repo": "olimpio00/Estagio-etapa-2",

@@ -13,7 +13,9 @@ import { join, relative } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { ASSETS, CACHE, ROOT } from './lib/paths.mjs'
 
-const AT = Number(process.argv[2] ?? 6) // segundos no relógio das animações
+// 15s: as animações de entrada já congelaram e o crawl (32s de ciclo) está no
+// meio da passada. Em 6s ele ainda entra pela base e o snapshot engana.
+const AT = Number(process.argv[2] ?? 15) // segundos no relógio das animações
 const BASES = ['header', 'stats']
 const THEMES = ['dark', 'light']
 

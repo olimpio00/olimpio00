@@ -13,8 +13,10 @@ import { id, nebulae, ref, sceneDefs, starfield } from './lib/space.mjs'
 import { collect } from './lib/stats.mjs'
 
 const W = 1000
-const H = 240
+const H = 276
 const TOP_LANGS = 6
+/** Altura da faixa de status no topo — todo o conteúdo desce por ela. */
+const BAND = 36
 const SEED = 66601138 // fixo: mesmo céu em todo build
 const nf = new Intl.NumberFormat('pt-BR')
 
@@ -29,7 +31,7 @@ function tiles(stats, t) {
   const w = 205
   const h = 78
   const cols = [40, 259]
-  const rows = [50, 142]
+  const rows = [50 + BAND, 142 + BAND]
 
   return items
     .map((item, i) => {
@@ -50,10 +52,24 @@ function tiles(stats, t) {
     .join('')
 }
 
+/**
+ * Faixa de status do topo — o "console de bordo" ligado.
+ * O ponto pulsa em SMIL; se não animar, fica aceso, que é o estado correto.
+ */
+const band = (t) => `
+    <g>
+      <circle cx="46" cy="41" r="4.5" fill="${t.saber}">
+        <animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="46" cy="41" r="9" fill="${t.saberGlow}" opacity="0.35" filter="${ref('blade', t)}"/>
+      <text x="62" y="46" font-family="${MONO}" font-size="12" letter-spacing="2.4"
+            fill="${t.dim}">SISTEMAS ONLINE · TELEMETRIA GITHUB</text>
+    </g>`
+
 function langPanel(stats, t) {
   const x = 520
   const barW = 440
-  const barY = 84
+  const barY = 84 + BAND
   const barH = 14
 
   const top = stats.langs.slice(0, TOP_LANGS)
@@ -77,7 +93,7 @@ function langPanel(stats, t) {
       const col = i % 2
       const row = Math.floor(i / 2)
       const lx = x + col * 224
-      const ly = 132 + row * 24
+      const ly = 132 + BAND + row * 24
       return `
       <g opacity="0">
         <animate attributeName="opacity" to="1" dur="0.4s" begin="${(0.7 + i * 0.07).toFixed(2)}s" fill="freeze"/>
@@ -91,10 +107,10 @@ function langPanel(stats, t) {
   return `
     <!-- Painel próprio: texto de 12px sobre nebulosa fica ilegível, então a
          coluna direita ganha fundo sólido em vez de flutuar sobre o cenário. -->
-    <rect x="508" y="40" width="452" height="160" rx="12"
+    <rect x="508" y="${40 + BAND}" width="452" height="160" rx="12"
           fill="${t.panel}" fill-opacity="0.9" stroke="${t.border}" stroke-width="1"/>
 
-    <text x="${x}" y="64" font-family="${MONO}" font-size="12" letter-spacing="2"
+    <text x="${x}" y="${64 + BAND}" font-family="${MONO}" font-size="12" letter-spacing="2"
           fill="${t.dim}">DISTRIBUIÇÃO DE CÓDIGO</text>
 
     <!-- brilho da "lâmina": a barra emite luz como um sabre -->
@@ -118,7 +134,7 @@ function card(stats, t) {
       <rect x="0" y="0" width="${W}" height="${H}" rx="18"/>
     </clipPath>
     <clipPath id="${id('barClip', t)}">
-      <rect x="520" y="84" width="${barW}" height="14" rx="7">
+      <rect x="520" y="${84 + BAND}" width="${barW}" height="14" rx="7">
         <animate attributeName="width" from="0" to="${barW}" dur="1.1s" begin="0.35s" fill="freeze"/>
       </rect>
     </clipPath>
@@ -129,6 +145,7 @@ function card(stats, t) {
     ${nebulae(t, 'stats')}
     <g>${starfield(t, { w: W, h: H, seed: SEED })}</g>
 
+    ${band(t)}
     ${tiles(stats, t)}
     ${langPanel(stats, t)}
 
