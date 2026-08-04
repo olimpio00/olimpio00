@@ -17,7 +17,7 @@
 
 <p align="center">
   <a href="https://github.com/olimpio00?tab=repositories"><img src="https://img.shields.io/badge/Projetos-11-8b1a1a?style=flat-square&logo=github&logoColor=white" alt="Projetos"></a>
-  <a href="mailto:olimpio@sellentt.com.br"><img src="https://img.shields.io/badge/Email-contato-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email"></a>
+  <a href="mailto:olimpiodev@hotmail.com.br"><img src="https://img.shields.io/badge/Email-contato-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email"></a>
   <img src="https://img.shields.io/badge/Sith%20Lord%20of-Fullstack-000000?style=flat-square&logo=starship&logoColor=e5484d" alt="Sith Lord of">
 </p>
 
