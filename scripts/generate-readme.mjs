@@ -50,9 +50,16 @@ async function assetVersion(base) {
   return createHash('md5').update(hashes.join('')).digest('hex').slice(0, 8)
 }
 
-const badge = ({ label, color, logo, logoColor = 'white' }) => {
-  const text = encodeURIComponent(label).replace(/-/g, '--').replace(/%20/g, '%20')
-  return `![${label}](https://img.shields.io/badge/${text}-${color}?style=flat-square&logo=${logo}&logoColor=${logoColor})`
+/** Segmento de badge do shields.io: "-" literal precisa virar "--". */
+const seg = (text) => encodeURIComponent(text).replace(/-/g, '--')
+
+const badge = ({ label, color, logo, logoColor = 'white' }) =>
+  `![${label}](https://img.shields.io/badge/${seg(label)}-${color}?style=flat-square&logo=${logo}&logoColor=${logoColor})`
+
+/** Badge de duas partes (rótulo · valor), usado na fileira do topo. */
+const pairBadge = ({ label, value, color, logo, logoColor = 'white' }) => {
+  const img = `<img src="https://img.shields.io/badge/${seg(label)}-${seg(value)}-${color}?style=flat-square${logo ? `&logo=${logo}&logoColor=${logoColor}` : ''}" alt="${label}">`
+  return img
 }
 
 /** <picture> com par claro/escuro — GitHub troca conforme o tema do usuário. */
@@ -167,8 +174,10 @@ function render(profile, stats, versions, branch) {
   const featuredNote = S.featuredNote
     ? `\n<sub>${S.featuredNote.replace(/\{\{count\}\}/g, profile.featured.length)}</sub>\n`
     : ''
+  // Vermelho-escuro no primeiro badge, não o azul do GitHub: a fileira fica
+  // logo abaixo do banner e o azul quebrava a paleta na primeira linha da página.
   const links = [
-    `<a href="https://github.com/${login}?tab=repositories"><img src="https://img.shields.io/badge/Projetos-${stats.projectCount}-1f6feb?style=flat-square&logo=github&logoColor=white" alt="Projetos"></a>`,
+    `<a href="https://github.com/${login}?tab=repositories"><img src="https://img.shields.io/badge/Projetos-${stats.projectCount}-8b1a1a?style=flat-square&logo=github&logoColor=white" alt="Projetos"></a>`,
     `<a href="mailto:${profile.email}"><img src="https://img.shields.io/badge/Email-contato-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email"></a>`,
   ]
   if (profile.linkedin) {
@@ -181,6 +190,9 @@ function render(profile, stats, versions, branch) {
       `<a href="${profile.website}"><img src="https://img.shields.io/badge/Portfólio-online-3FCF8E?style=flat-square&logo=googlechrome&logoColor=white" alt="Portfólio"></a>`
     )
   }
+  // Badges decorativos (sem link) fecham a fileira — vêm por último de propósito:
+  // o que é clicável fica junto, à esquerda.
+  for (const b of profile.extraBadges ?? []) links.push(pairBadge(b))
 
   const table = [
     '| Projeto | Descrição | Stack |',

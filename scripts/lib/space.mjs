@@ -7,13 +7,13 @@ import { between, seeded } from './random.mjs'
  * Sem isso, dois SVGs no mesmo documento HTML colidem: `url(#rule)` resolve
  * para o primeiro match do documento, então o tema claro herda o gradiente do
  * escuro. No README cada SVG é um <img> isolado e o bug não aparece — mas
- * aparece em qualquer página que embuta os arquivos inline.
+ * aparece em qualquer página que embuta os arquivos inline (o preview, por ex).
  */
 export const id = (name, t) => `${name}-${t.id}`
 export const ref = (name, t) => `url(#${id(name, t)})`
 
 /**
- * Campo de estrelas (ou poeira, no tema Tatooine).
+ * Campo de estrelas (ou cinza em suspensão, no tema claro).
  * @param seed semente fixa por asset — mesmo build, mesmo céu.
  */
 export function starfield(t, { w, h, seed }) {
@@ -40,86 +40,113 @@ export function starfield(t, { w, h, seed }) {
   return out.join('')
 }
 
-const PRESETS = {
-  // Nebulosas atrás do texto do banner, à esquerda e nos cantos
-  header: {
-    space: [
-      { cx: 858, cy: 52, r: 118, fill: 'accent2', drift: '0 0; -26 22; 0 0', dur: 15 },
-      { cx: 120, cy: 430, r: 96, fill: 'accent3', drift: '0 0; 16 14; 0 0', dur: 17 },
-    ],
-    desert: [],
-  },
-  // No card, as manchas ficam longe da coluna direita: a legenda precisa de
-  // contraste, e nebulosa atrás de texto de 12px é ilegível.
-  stats: {
-    space: [
-      { cx: 140, cy: 30, r: 96, fill: 'accent2', drift: '0 0; -18 16; 0 0', dur: 16 },
-      { cx: 300, cy: 235, r: 84, fill: 'accent', drift: '0 0; 22 -14; 0 0', dur: 19 },
-    ],
-    desert: [],
-  },
+/**
+ * Calor subindo no topo da cena.
+ *
+ * É um gradiente radial num rect, não um círculo sob feGaussianBlur: o blur de
+ * 58px que existia aqui antes era o filtro mais caro dos dois SVGs e produzia
+ * exatamente a mesma mancha difusa. Gradiente também não depende de o
+ * renderizador suportar filtros.
+ */
+export const skyGlow = (t, { w, h }) => `
+    <rect width="${w}" height="${h}" fill="${ref('sky', t)}"/>`
+
+/** Linha serrilhada atravessando a cena, aberta — serve de crista ou de veio. */
+function ridgeLine(rng, { w, y, amp, step }) {
+  const points = []
+  for (let x = -30; x <= w + 30; x += step) {
+    points.push(`${x} ${(y + between(rng, -amp, amp)).toFixed(1)}`)
+  }
+  return `M ${points.join(' L ')}`
 }
 
-/** Nebulosas difusas — só no tema espacial, onde blur grande lê como gás. */
-export function nebulae(t, preset = 'header') {
-  const bodies = PRESETS[preset][t.mode] ?? []
-  if (!bodies.length) return ''
-
-  return `<g filter="${ref('soft', t)}" opacity="${t.glow}">
-      ${bodies
-        .map(
-          (b) => `<circle cx="${b.cx}" cy="${b.cy}" r="${b.r}" fill="${t[b.fill]}">
-        <animateTransform attributeName="transform" type="translate"
-                          values="${b.drift}" dur="${b.dur}s" repeatCount="indefinite"/>
-      </circle>`
-        )
-        .join('\n      ')}
-    </g>`
-}
+/** A mesma linha, fechada até a base — silhueta de montanha preenchível. */
+const ridgePath = (rng, opts) => `${ridgeLine(rng, opts)} L ${opts.w + 30} ${opts.bottom} L -30 ${opts.bottom} Z`
 
 /**
- * Sóis gêmeos de Tatooine — discos definidos com corona, não borrões.
- * Um feGaussianBlur largo sobre fundo creme lê como mancha; o que dá a
- * sensação de sol é o núcleo nítido com halo curto ao redor.
+ * Horizonte de Mustafar: rio de lava entre duas cristas de basalto.
+ *
+ * A profundidade vem da ordem de pintura — crista distante, rio, crista da
+ * frente. O rio fica *atrás* da rocha próxima de propósito: é a luz vazando
+ * por trás da pedra que lê como lava, não uma faixa laranja solta no meio da
+ * imagem. Por isso o veio é uma polilinha irregular e não um rect: uma barra
+ * reta de ponta a ponta lê como neon, não como rocha derretida.
+ *
+ * As três espessuras do veio são um só caminho desenhado em camadas — bloom
+ * difuso, corpo laranja, núcleo quase branco. É o que dá a impressão de que a
+ * luz vem de dentro.
+ *
+ * Tudo estático: a cena já tem brasa pulsando, estrelas piscando e o crawl
+ * subindo. Montanha que se move viraria ruído.
  */
-export function twinSuns(t, { cx = 852, cy = 74 } = {}) {
-  if (t.mode !== 'desert') return ''
-
-  const sun = (x, y, r, delay) => `
-      <g>
-        <circle cx="${x}" cy="${y}" r="${r * 2.1}" fill="${ref('corona', t)}" opacity="0.75"/>
-        <circle cx="${x}" cy="${y}" r="${r}" fill="${t.accent3}" opacity="0.92">
-          <animate attributeName="opacity" values="0.92;0.75;0.92" dur="6s"
-                   begin="${delay}s" repeatCount="indefinite"/>
-        </circle>
-      </g>`
-
-  return `<g>${sun(cx, cy, 30, 0)}${sun(cx + 66, cy + 40, 18, 1.8)}</g>`
-}
-
-/**
- * Estrela da Morte — preenche o vazio à direita do banner no tema espacial.
- * Opacidade baixa de propósito: é cenário, não deve competir com o nome.
- */
-export function deathStar(t, { cx = 848, cy = 128, r = 92 } = {}) {
-  if (t.mode !== 'space') return ''
+export function lavaHorizon(t, { w, bottom, base, seed }) {
+  const rng = seeded(seed)
+  const far = ridgePath(rng, { w, bottom, y: base - 48, amp: 17, step: 58 })
+  const seam = ridgeLine(rng, { w, y: base - 28, amp: 11, step: 44 })
+  // Amplitude maior que a do veio de propósito: é o que faz picos de rocha
+  // cruzarem o rio e a lava aparecer só nos vãos.
+  const near = ridgePath(rng, { w, bottom, y: base + 2, amp: 31, step: 84 })
 
   return `
-    <g opacity="0.5">
-      <circle cx="${cx}" cy="${cy}" r="${r}" fill="${t.panel}" stroke="${t.border}" stroke-width="1.5"/>
-      <!-- prato do superlaser -->
-      <circle cx="${cx - r * 0.34}" cy="${cy - r * 0.36}" r="${r * 0.21}"
-              fill="${t.bg}" stroke="${t.border}" stroke-width="1"/>
-      <circle cx="${cx - r * 0.34}" cy="${cy - r * 0.36}" r="${r * 0.09}"
-              fill="${t.saber}" opacity="0.55"/>
-      <!-- trincheira equatorial -->
-      <path d="M ${cx - r} ${cy + 6} A ${r} ${r} 0 0 0 ${cx + r} ${cy + 6}"
-            fill="none" stroke="${t.border}" stroke-width="2.5" opacity="0.9"/>
-      <path d="M ${cx - r * 0.98} ${cy - 14} A ${r} ${r} 0 0 0 ${cx + r * 0.98} ${cy - 14}"
-            fill="none" stroke="${t.border}" stroke-width="1" opacity="0.5"/>
-      <!-- sombra do terminador, para o disco não parecer plano -->
-      <circle cx="${cx}" cy="${cy}" r="${r}" fill="${ref('terminator', t)}"/>
+    <g>
+      <path d="${far}" fill="${t.rockFar}"/>
+      <path d="${far}" fill="none" stroke="${t.rockEdge}" stroke-width="1" opacity="0.45"/>
+
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="${seam}" stroke="${t.lavaMid}" stroke-width="26" opacity="0.55" filter="${ref('heat', t)}"/>
+        <path d="${seam}" stroke="${t.lavaHot}" stroke-width="9" opacity="0.9"/>
+        <path d="${seam}" stroke="${t.lavaCore}" stroke-width="2.5" opacity="0.95"/>
+      </g>
+
+      <path d="${near}" fill="${t.rock}"/>
+      <path d="${near}" fill="none" stroke="${t.rockEdge}" stroke-width="1.5" opacity="0.8"/>
     </g>`
+}
+
+/**
+ * Halo de calor pulsando devagar.
+ *
+ * Vai *antes* do horizonte na ordem de pintura: o calor tem que sangrar do rio
+ * para cima, com as cristas na frente dele. Desenhado depois, viraria um véu
+ * vermelho sobre a rocha.
+ *
+ * Sem SMIL fica na opacidade base, que é o estado correto — não invisível.
+ */
+export const emberGlow = (t, { cx, cy, rx, ry }) => `
+    <ellipse cx="${cx}" cy="${cy}" rx="${rx.toFixed(0)}" ry="${ry}"
+             fill="${ref('ember', t)}" opacity="${t.glow}">
+      <animate attributeName="opacity" values="${t.glow};${(t.glow * 1.4).toFixed(2)};${t.glow}"
+               dur="6s" repeatCount="indefinite"/>
+    </ellipse>`
+
+/**
+ * Faíscas subindo da lava. Cada uma tem duração e atraso próprios — sincronizadas
+ * denunciariam o truque na primeira olhada.
+ */
+export function embers(t, { w, base, seed, count = 26 }) {
+  const rng = seeded(seed)
+  const out = []
+
+  for (let i = 0; i < count; i++) {
+    const x = between(rng, 10, w - 10).toFixed(1)
+    const y = between(rng, base - 30, base + 20).toFixed(1)
+    const r = between(rng, 0.8, 2.1).toFixed(2)
+    const rise = between(rng, 120, 300).toFixed(0)
+    const drift = between(rng, -34, 34).toFixed(0)
+    const dur = between(rng, 5.5, 11).toFixed(1)
+    const delay = between(rng, 0, 9).toFixed(1)
+
+    out.push(`
+      <circle cx="${x}" cy="${y}" r="${r}" fill="${t.ember}" opacity="0">
+        <animate attributeName="opacity" values="0;0.9;0.7;0" keyTimes="0;0.15;0.6;1"
+                 dur="${dur}s" begin="${delay}s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="translate"
+                          values="0 0; ${drift} -${rise}" dur="${dur}s"
+                          begin="${delay}s" repeatCount="indefinite"/>
+      </circle>`)
+  }
+
+  return `<g>${out.join('')}</g>`
 }
 
 /**
@@ -151,26 +178,57 @@ export function saber(t, { x = 44, top = 40, bottom = 228 } = {}) {
     </g>`
 }
 
-/** Filtros e gradientes da cena. Vai dentro de <defs>. */
-export const sceneDefs = (t) => `
-    <filter id="${id('soft', t)}" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="58"/>
+/**
+ * Filtros e gradientes da cena. Vai dentro de <defs>.
+ * @param w largura do asset — o gradiente do céu é ancorado em userSpace para
+ *          o foco cair no topo/centro, como no design.
+ */
+export const sceneDefs = (t, { w, h }) => `
+    <!-- Régua da base, comum aos dois assets: brasa viva na esquerda apagando
+         para a direita. É o que amarra banner e console como um par. -->
+    <linearGradient id="${id('rule', t)}" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="${w}" y2="0">
+      <stop offset="0" stop-color="${t.accent}" stop-opacity="1"/>
+      <stop offset="0.5" stop-color="${t.accent3}" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="${t.accent3}" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="${id('sky', t)}" gradientUnits="userSpaceOnUse"
+                    cx="${w / 2}" cy="0" r="${w * 0.78}">
+      <stop offset="0" stop-color="${t.sky}"/>
+      <stop offset="0.55" stop-color="${t.bg}"/>
+      <stop offset="1" stop-color="${t.bg}"/>
+    </radialGradient>
+    <radialGradient id="${id('ember', t)}">
+      <stop offset="0" stop-color="${t.accent3}" stop-opacity="0.85"/>
+      <stop offset="0.45" stop-color="${t.accent2}" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="${t.accent2}" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Puxa a base para a cor de fundo, para o nome e os chips ficarem
+         legíveis sobre a lava. No tema claro isso clareia em vez de escurecer,
+         e por isso a opacidade é menor: 0.97 apagaria a rocha por completo. -->
+    <linearGradient id="${id('scrim', t)}" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="${t.bg}" stop-opacity="${t.scrim}"/>
+      <stop offset="0.45" stop-color="${t.bg}" stop-opacity="${(t.scrim * 0.88).toFixed(2)}"/>
+      <stop offset="1" stop-color="${t.bg}" stop-opacity="0"/>
+    </linearGradient>
+    <!-- Região generosa: a bbox do veio tem ~22px de altura e o bloom precisa
+         de ~55px de folga (metade do traço + 3σ). Apertado, o brilho é cortado
+         numa linha reta acima da lava. -->
+    <filter id="${id('heat', t)}" x="-8%" y="-500%" width="116%" height="1100%">
+      <feGaussianBlur stdDeviation="14"/>
     </filter>
     <filter id="${id('blade', t)}" x="-200%" y="-50%" width="500%" height="200%">
       <feGaussianBlur stdDeviation="4.5"/>
     </filter>
-    <filter id="${id('textGlow', t)}" x="-30%" y="-60%" width="160%" height="220%">
-      <feGaussianBlur stdDeviation="${t.textGlow}" result="b"/>
+    <!-- Halo colorido: o blur puro devolveria brilho branco, e o design pede
+         texto claro com auréola vermelha. feFlood tinge a silhueta borrada. -->
+    <filter id="${id('textGlow', t)}" x="-30%" y="-80%" width="160%" height="260%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="${t.textGlow}" result="b"/>
+      <!-- 0.6, não 1: com o halo muito opaco encostado num texto branco o
+           resultado satura e volta a parecer brilho branco, não vermelho. -->
+      <feFlood flood-color="${t.glowColor}" flood-opacity="0.6" result="c"/>
+      <feComposite in="c" in2="b" operator="in" result="glow"/>
       <feMerge>
-        <feMergeNode in="b"/>
+        <feMergeNode in="glow"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
-    </filter>
-    <radialGradient id="${id('corona', t)}">
-      <stop offset="0.42" stop-color="${t.accent3}" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="${t.accent3}" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="${id('terminator', t)}" x1="0" y1="0" x2="1" y2="0.6">
-      <stop offset="0.45" stop-color="${t.bg}" stop-opacity="0"/>
-      <stop offset="1" stop-color="${t.bg}" stop-opacity="0.85"/>
-    </linearGradient>`
+    </filter>`

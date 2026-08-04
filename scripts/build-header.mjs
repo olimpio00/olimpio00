@@ -1,5 +1,6 @@
 /**
- * Gera assets/header-{light,dark}.svg — banner do topo do README, tema Star Wars.
+ * Gera assets/header-{light,dark}.svg — banner do topo do README, tema
+ * Mustafar: crawl vermelho subindo sobre um rio de lava.
  *
  * Decisões:
  * - Animação em SMIL (<animate>), não CSS. Se o renderizador ignorar SMIL, os
@@ -9,23 +10,29 @@
  *   via <picture media="...">.
  * - A ordem de leitura imita a abertura dos filmes: fala em azul, o crawl
  *   subindo ao centro, e o logotipo (o nome) por último.
+ * - O cenário é vetor, não foto. Um still do filme resolveria a estética em
+ *   duas linhas, mas é material de terceiro num perfil público e ainda somaria
+ *   ~250 KB de base64 a um asset que o GitHub rebaixa por peso.
  */
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { ASSETS, DATA } from './lib/paths.mjs'
 import { MONO, SANS, THEMES, esc, monoWidth } from './lib/theme.mjs'
-import { deathStar, id, nebulae, ref, saber, sceneDefs, starfield, twinSuns } from './lib/space.mjs'
+import { embers, emberGlow, id, lavaHorizon, ref, saber, sceneDefs, skyGlow, starfield } from './lib/space.mjs'
 
 const W = 1000
 const H = 480
 const CYCLE = 9 // segundos do ciclo completo do subtítulo rotativo
 const SEED = 20260730 // fixo: mesmo céu em todo build
 
-// Faixa reservada ao crawl. Fica entre a fala de abertura e o bloco do nome.
-const CRAWL_TOP = 84
-const CRAWL_BOTTOM = 300
-// Estreito de propósito: mantém o crawl fora da Estrela da Morte, à direita.
-const CRAWL_WIDTH = 560 // largura útil do texto, centralizado em W/2
+// Faixa reservada ao crawl. Fica entre a fala de abertura e o horizonte.
+const CRAWL_TOP = 72
+const CRAWL_BOTTOM = 272
+/**
+ * Largura útil do texto, centralizado em W/2. Mais largo que a versão anterior
+ * porque não há mais nada no lado direito da cena para desviar.
+ */
+const CRAWL_WIDTH = 660
 const CRAWL_DUR = 32 // segundos de uma passada completa
 const CRAWL_SCALE_END = 0.42 // quanto o bloco encolhe ao "se afastar"
 /**
@@ -33,7 +40,18 @@ const CRAWL_SCALE_END = 0.42 // quanto o bloco encolhe ao "se afastar"
  * mostrar título + início do primeiro parágrafo em vez de um recorte no meio
  * de uma frase.
  */
-const CRAWL_BASE_Y = 130
+const CRAWL_BASE_Y = 118
+
+/**
+ * Linha do horizonte. Tudo abaixo é rocha, e é sobre ela que o nome se apoia —
+ * por isso o bloco de identidade não precisa de um scrim opaco.
+ */
+const HORIZON = 346
+
+const NAME_Y = 400
+const ROTATING_Y = 434
+const CHIPS_Y = 416
+const CHIPS_RIGHT = 956
 
 /** Largura aproximada de texto na fonte sans — só para quebrar linha. */
 const sansWidth = (text, size) => text.length * size * 0.53
@@ -105,7 +123,7 @@ function crawl(c, t) {
     <g mask="${ref('crawlMask', t)}">
       <!-- Sem textGlow aqui de propósito: é um bloco alto que reescala a cada
            frame, e feGaussianBlur sob transform animado custa caro por nada —
-           amarelo sobre quase-preto já tem contraste de sobra. -->
+           vermelho-brasa sobre quase-preto já tem contraste de sobra. -->
       <g transform="translate(${W / 2} ${CRAWL_BASE_Y})">
         <animateTransform attributeName="transform" type="translate" additive="sum"
                           values="0 ${enter}; 0 ${exit.toFixed(1)}"
@@ -118,27 +136,36 @@ function crawl(c, t) {
     </g>`
 }
 
-function chips(labels, t, y) {
+/**
+ * Chips da stack, alinhados à direita — contrapeso do nome, que fica à
+ * esquerda. Alinhar à direita exige medir a fileira inteira antes de posicionar
+ * o primeiro, daí o cálculo em duas passadas.
+ */
+function chips(labels, t, { y, right }) {
   const size = 13
   const padX = 11
   const h = 28
-  let x = 76
-  const out = []
+  const gap = 9
 
-  labels.forEach((label, i) => {
-    const w = Math.round(monoWidth(label, size) + padX * 2)
-    out.push(`
+  const widths = labels.map((l) => Math.round(monoWidth(l, size) + padX * 2))
+  const total = widths.reduce((a, b) => a + b, 0) + gap * Math.max(0, labels.length - 1)
+  let x = right - total
+
+  return labels
+    .map((label, i) => {
+      const w = widths[i]
+      const chip = `
     <g opacity="0">
       <animate attributeName="opacity" to="1" dur="0.5s" begin="${(1.15 + i * 0.09).toFixed(2)}s" fill="freeze"/>
       <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${h / 2}"
-            fill="${t.panel}" stroke="${t.border}" stroke-width="1"/>
+            fill="${t.panel}" fill-opacity="0.85" stroke="${t.border}" stroke-width="1"/>
       <text x="${x + w / 2}" y="${y + h / 2 + 4.5}" text-anchor="middle"
             font-family="${MONO}" font-size="${size}" fill="${t.muted}">${esc(label)}</text>
-    </g>`)
-    x += w + 9
-  })
-
-  return out.join('')
+    </g>`
+      x += w + gap
+      return chip
+    })
+    .join('')
 }
 
 function rotating(words, t, y) {
@@ -169,19 +196,11 @@ function rotating(words, t, y) {
 
 function header(profile, t) {
   const { name, header: h } = profile
-  const NAME_Y = 372
-  const ROTATING_Y = 412
-  const CHIPS_Y = 434
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(name)} — ${esc(profile.role)}">
   <title>${esc(name)} — ${esc(profile.role)}</title>
   <defs>
-    ${sceneDefs(t)}
-    <linearGradient id="${id('rule', t)}" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="${W}" y2="0">
-      <stop offset="0" stop-color="${t.saber}" stop-opacity="0.95"/>
-      <stop offset="0.5" stop-color="${t.accent2}" stop-opacity="0.6"/>
-      <stop offset="1" stop-color="${t.accent3}" stop-opacity="0"/>
-    </linearGradient>
+    ${sceneDefs(t, { w: W, h: H })}
     <!-- O crawl desaparece nas duas pontas da faixa; corte reto denunciaria a
          máscara e mataria a ilusão de distância. -->
     <linearGradient id="${id('crawlFade', t)}" gradientUnits="userSpaceOnUse"
@@ -202,15 +221,20 @@ function header(profile, t) {
   </defs>
 
   <g clip-path="${ref('card', t)}">
-    <rect width="${W}" height="${H}" fill="${t.bg}"/>
-    ${nebulae(t, 'header')}
+    ${skyGlow(t, { w: W, h: H })}
     <g>${starfield(t, { w: W, h: H, seed: SEED })}</g>
-    ${deathStar(t, { cx: 866, cy: 116, r: 82 })}
-    ${twinSuns(t)}
+    ${emberGlow(t, { cx: W / 2, cy: HORIZON + 26, rx: W * 0.6, ry: 132 })}
+    ${lavaHorizon(t, { w: W, bottom: H, base: HORIZON, seed: SEED })}
+    ${embers(t, { w: W, base: HORIZON - 22, seed: SEED })}
+
+    <!-- Reforço na base: a rocha da frente já é quase preta, mas o scrim
+         garante o contraste do nome mesmo onde uma crista sobe mais alto. -->
+    <rect x="0" y="${H - 132}" width="${W}" height="132" fill="${ref('scrim', t)}"/>
 
     ${saber(t, { x: 44, top: 40, bottom: 430 })}
 
-    <text x="78" y="60" font-family="${MONO}" font-size="14.5" fill="${t.opening}" opacity="0">
+    <text x="${W / 2}" y="46" text-anchor="middle" font-family="${MONO}" font-size="14.5"
+          letter-spacing="0.6" fill="${t.opening}" opacity="0">
       <animate attributeName="opacity" to="1" dur="1.2s" fill="freeze"/>
       ${esc(h.opening)}
     </text>
@@ -218,13 +242,13 @@ function header(profile, t) {
     ${crawl(h.crawl, t)}
 
     <text x="76" y="${NAME_Y}" font-family="${SANS}" font-size="70" font-weight="800"
-          letter-spacing="-1.5" fill="${t.crawl}"${t.textGlow ? ` filter="${ref('textGlow', t)}"` : ''} opacity="0">
+          letter-spacing="-1.5" fill="${t.title}"${t.textGlow ? ` filter="${ref('textGlow', t)}"` : ''} opacity="0">
       <animate attributeName="opacity" to="1" dur="0.9s" begin="0.5s" fill="freeze"/>
       ${esc(name)}
     </text>
 
     ${rotating(h.rotating, t, ROTATING_Y)}
-    ${chips(h.chips, t, CHIPS_Y)}
+    ${chips(h.chips, t, { y: CHIPS_Y, right: CHIPS_RIGHT })}
 
     <rect x="0" y="${H - 3}" width="${W}" height="3" fill="${ref('rule', t)}"/>
     <rect x="0" y="0" width="${W}" height="${H}" rx="18" fill="none"

@@ -43,7 +43,7 @@ const page = `<!doctype html>
   body { margin: 0; font: 14px ui-sans-serif, system-ui, sans-serif; }
   section { padding: 32px; }
   section.dark  { background: #0d1117; color: #8b9cb8; }
-  section.light { background: #f2e8d5; color: #6a5333; }
+  section.light { background: #ffffff; color: #57606a; }
   h2 { font: 600 12px ui-monospace, monospace; letter-spacing: 2px;
        text-transform: uppercase; margin: 0 0 16px; opacity: .7; }
   svg { display: block; width: 100%; max-width: 1000px; height: auto; margin: 0 auto 24px; }

@@ -1,71 +1,97 @@
 /**
- * Paletas Star Wars — um par claro/escuro para o README servir os dois.
+ * Paletas Mustafar — um par claro/escuro para o README servir os dois.
  *
- * `dark`  = espaço profundo, amarelo oficial da abertura (#FFE81F) e sabre azul.
- * `light` = Tatooine (areia, sóis gêmeos). Existe porque #FFE81F sobre fundo
- *           claro é ilegível; o tema claro troca para ocre queimado em vez de
- *           simplesmente clarear o tema escuro.
+ * `dark`  = lado sombrio: basalto quase preto, rio de lava e sabre vermelho.
+ *           O crawl é vermelho-brasa, não o amarelo canônico: o perfil inteiro
+ *           lê como arquivo do Império, e amarelo aqui brigaria com a lava.
+ * `light` = as cinzas depois da erupção. Existe porque #ff3b30 sobre fundo
+ *           claro perde contraste; o tema claro troca para carmim queimado em
+ *           vez de simplesmente clarear o escuro.
+ *
+ * Regra ao mexer: `dim` é o tamanho de texto menor da cena (rótulos de 10.5px
+ * em maiúsculas). Se escurecer `dim` no tema escuro, confira o contraste — o
+ * valor atual está em ~5.4:1 sobre `panel`, com folga sobre os 4.5:1 exigidos.
  */
 export const THEMES = {
   dark: {
     id: 'dark',
-    mode: 'space',
-    bg: '#05070f',
-    panel: '#0c1220',
-    border: '#1c2a45',
-    grid: '#111c2e',
-    text: '#e8eef9',
-    muted: '#9fb2cc',
-    dim: '#6b7f9c',
+    bg: '#010409',
+    panel: '#0b0405',
+    border: '#2a1113',
+    text: '#e6edf3',
+    title: '#f5f7fa',
+    muted: '#c2b3b3',
+    dim: '#9a8687',
     // "accent*" mantém os nomes genéricos: os scripts não precisam saber do tema
-    accent: '#4bd5ee', // sabre azul
-    accent2: '#8b5cf6', // sabre roxo
-    accent3: '#ffe81f', // amarelo da abertura
-    crawl: '#ffe81f',
-    opening: '#4bd5ee', // "Há muito tempo..." é azul no filme
-    saber: '#4bd5ee', // também usado em texto — precisa ser legível
-    saberCore: '#ffffff',
-    saberGlow: '#4bd5ee',
-    saberHalo: 0.55,
+    accent: '#ff3b30', // brasa viva
+    accent2: '#8b1a1a', // rocha em brasa
+    accent3: '#e5484d', // halo do calor
+    crawl: '#ff3b30',
+    opening: '#4bd5ee', // "Há muito tempo..." é azul no filme — único frio da cena
+    saber: '#ff5b52', // também usado em texto — precisa ser legível
+    saberCore: '#fff1ef', // núcleo branco-quente com sangria vermelha
+    saberGlow: '#ff3b30',
+    saberHalo: 0.6,
     hilt: '#aab6c4',
     hiltDark: '#6b7684',
     star: '#ffffff',
-    starOpacity: 0.9,
-    starCount: 120,
-    glow: 0.42,
-    textGlow: 7,
+    starOpacity: 0.85,
+    starCount: 110,
+    // Cena vulcânica: rocha da frente mais escura que a do fundo é o que cria
+    // profundidade — sem isso as duas cristas viram uma mancha só.
+    rock: '#0a070c',
+    rockFar: '#1b1015',
+    rockEdge: '#5c2422',
+    lavaCore: '#ffe0bc', // molten, quase branco no centro do veio
+    lavaHot: '#ff8a3d',
+    lavaMid: '#ff3b30',
+    ember: '#ff6b5e',
+    sky: '#1a0507', // topo do céu, onde o calor sobe
+    scrim: 0.97, // opacidade do véu que protege a legibilidade do nome
+    glow: 0.55,
+    textGlow: 11,
+    glowColor: '#ff3b30',
   },
   light: {
     id: 'light',
-    mode: 'desert',
-    bg: '#f7edd9',
-    panel: '#fffaee',
-    border: '#dcc59c',
-    grid: '#e6d5b4',
-    text: '#2a1c0c',
-    muted: '#6a5333',
-    dim: '#947952',
-    accent: '#b4531a', // ocre queimado
-    accent2: '#8a3f12',
-    accent3: '#a8720a', // dourado escuro, legível sobre areia
-    crawl: '#9c6206',
+    bg: '#f2e6dd',
+    panel: '#fffdfb',
+    border: '#d6b9ad',
+    text: '#2a1210',
+    title: '#1c0c0a',
+    muted: '#6b4a44',
+    dim: '#87645c',
+    accent: '#b3261e', // carmim queimado
+    accent2: '#8a1c16',
+    accent3: '#c2410c',
+    crawl: '#a01b14',
     opening: '#1f6f8b',
-    // Sabre azul sobre areia: além de ser a imagem icônica de Tatooine, é o
-    // único jeito de a lâmina ter contraste num fundo claro — vermelho pálido
-    // sobre creme desaparece.
-    // Núcleo saturado e halo claro — o inverso do tema escuro. Num fundo
-    // creme, núcleo pálido faz a lâmina parecer um tubo vazio.
-    saber: '#2563eb', // também usado em texto — precisa ser legível
-    saberCore: '#1d4ed8',
-    saberGlow: '#93c5fd',
+    // Sabre vermelho sobre cinza clara: núcleo saturado e halo pálido — o
+    // inverso do tema escuro. Num fundo creme, núcleo pálido faz a lâmina
+    // parecer um tubo vazio.
+    saber: '#b3261e', // também usado em texto — precisa ser legível
+    saberCore: '#8a1c16',
+    saberGlow: '#f0a49d',
     saberHalo: 0.85,
     hilt: '#8a7355',
     hiltDark: '#5c4b34',
-    star: '#c9ab7d', // poeira em suspensão, não estrelas
-    starOpacity: 0.5,
-    starCount: 70,
-    glow: 0.5,
+    star: '#c9aba3', // cinza em suspensão, não estrelas
+    starOpacity: 0.45,
+    starCount: 60,
+    // Rocha coberta de cinza, não basalto: o nome é escuro e precisa de base
+    // clara. Silhueta preta aqui exigiria inverter o texto no meio da imagem.
+    rock: '#bfa899',
+    rockFar: '#d4c2b6',
+    rockEdge: '#8a5a4c',
+    lavaCore: '#fff2d8',
+    lavaHot: '#f97316',
+    lavaMid: '#c2410c',
+    ember: '#c2410c',
+    sky: '#f7dccc',
+    scrim: 0.5, // mais leve que no escuro: aqui o véu clareia, não escurece
+    glow: 0.45,
     textGlow: 0, // glow escuro sobre creme vira borrão, não brilho
+    glowColor: '#c2410c',
   },
 }
 
@@ -88,6 +114,12 @@ export const LANG_COLORS = {
   Procfile: '#a91e50',
 }
 
+/**
+ * O resto da cena é monocromático em vermelho, mas a barra de linguagens não:
+ * um degradê de vermelhos deixa sete faixas indistinguíveis entre si e da
+ * legenda. Cor do Linguist é reconhecível de longe (TS azul, Go ciano) e é a
+ * única parte do card que precisa ser lida como dado, não como cenário.
+ */
 export const langColor = (name, theme) => LANG_COLORS[name] ?? theme.dim
 
 export const SANS =

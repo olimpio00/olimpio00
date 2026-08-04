@@ -5,9 +5,9 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-dark.svg?v=f1a12b31">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-light.svg?v=f1a12b31">
-    <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-dark.svg?v=f1a12b31" alt="Olímpio — Fullstack Developer" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-dark.svg?v=f8d3978d">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-light.svg?v=f8d3978d">
+    <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-dark.svg?v=f8d3978d" alt="Olímpio — Fullstack Developer" width="100%">
   </picture>
 </p>
 
@@ -16,8 +16,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/olimpio00?tab=repositories"><img src="https://img.shields.io/badge/Projetos-11-1f6feb?style=flat-square&logo=github&logoColor=white" alt="Projetos"></a>
+  <a href="https://github.com/olimpio00?tab=repositories"><img src="https://img.shields.io/badge/Projetos-11-8b1a1a?style=flat-square&logo=github&logoColor=white" alt="Projetos"></a>
   <a href="mailto:olimpio@sellentt.com.br"><img src="https://img.shields.io/badge/Email-contato-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email"></a>
+  <img src="https://img.shields.io/badge/Sith%20Lord%20of-Fullstack-000000?style=flat-square&logo=starship&logoColor=e5484d" alt="Sith Lord of">
 </p>
 
 ---
@@ -200,9 +201,9 @@ CRUD de **missões no universo de Cassian Andor** — infiltração, sabotagem, 
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-dark.svg?v=ab939ae9">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-light.svg?v=ab939ae9">
-    <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-dark.svg?v=ab939ae9" alt="Estatísticas de olimpio00" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-dark.svg?v=70cef4f5">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-light.svg?v=70cef4f5">
+    <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-dark.svg?v=70cef4f5" alt="Estatísticas de olimpio00" width="100%">
   </picture>
 </p>
 
@@ -214,7 +215,7 @@ CRUD de **missões no universo de Cassian Andor** — infiltração, sabotagem, 
 
 ## Canal seguro
 
-- 📫 **Email:** [olimpio@sellentt.com.br](mailto:olimpio@sellentt.com.br)
+- 📫 **Email:** [olimpiodev@hotmail.com.br](mailto:olimpiodev@hotmail.com.br)
 - 💻 **GitHub:** [@olimpio00](https://github.com/olimpio00)
 
 <p align="center"><sub>Aberto a oportunidades e colaborações. 🚀</sub></p>

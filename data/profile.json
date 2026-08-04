@@ -3,7 +3,7 @@
   "name": "Olímpio",
   "role": "Fullstack Developer",
   "tagline": "Angular, React &amp; React Native no front, Node/Go/Python no back — de app mobile a overlay em tempo real.",
-  "email": "olimpio@sellentt.com.br",
+  "email": "olimpiodev@hotmail.com.br",
   "linkedin": "",
   "website": "",
   "_comment_branch": "Deixe vazio para detectar automaticamente (git/CI). Só preencha para forçar.",
@@ -23,6 +23,17 @@
     "rotating": ["Fullstack Developer", "Angular · React Native", "Go · Node · Python"],
     "chips": ["TypeScript", "Angular", "React Native", "Node.js", "Go", "Python"]
   },
+
+  "_comment_extraBadges": "Badges decorativos da fileira do topo — não têm link.",
+  "extraBadges": [
+    {
+      "label": "Sith Lord of",
+      "value": "Fullstack",
+      "color": "000000",
+      "logo": "starship",
+      "logoColor": "e5484d"
+    }
+  ],
 
   "sections": {
     "about": "Dossiê do operador",
