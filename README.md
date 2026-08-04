@@ -5,9 +5,9 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-dark.svg?v=f8d3978d">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-light.svg?v=f8d3978d">
-    <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-dark.svg?v=f8d3978d" alt="Olímpio — Fullstack Developer" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-dark.svg?v=7cfcd13d">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-light.svg?v=7cfcd13d">
+    <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-dark.svg?v=7cfcd13d" alt="Olímpio — Fullstack Developer" width="100%">
   </picture>
 </p>
 

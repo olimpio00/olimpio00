@@ -320,7 +320,7 @@
                           dur="32s" repeatCount="indefinite"/>
         
       <text x="0" y="0" text-anchor="middle" font-family="'Segoe UI','SF Pro Display',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="19"
-            font-weight="800" letter-spacing="6" fill="#ff3b30">EPISÓDIO VII</text>
+            font-weight="800" letter-spacing="6" fill="#ff3b30">EPISÓDIO I</text>
       <text x="0" y="50" text-anchor="middle" font-family="'Segoe UI','SF Pro Display',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="42"
             font-weight="800" letter-spacing="1" fill="#ff3b30">O PORTFÓLIO</text>
       <text x="0" y="120" text-anchor="middle" font-family="'Segoe UI','SF Pro Display',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="20.5"
