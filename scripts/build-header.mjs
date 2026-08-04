@@ -1,13 +1,13 @@
 /**
- * Gera assets/header-{light,dark}.svg — banner do topo do README, tema
- * Mustafar: crawl vermelho subindo sobre um rio de lava.
+ * Gera assets/header-dark.svg — banner do topo do README, tema Mustafar: crawl
+ * vermelho subindo sobre um rio de lava.
  *
  * Decisões:
  * - Animação em SMIL (<animate>), não CSS. Se o renderizador ignorar SMIL, os
  *   elementos aparecem no estado final em vez de invisíveis — falha graciosa.
- * - Dois arquivos (claro/escuro) porque `prefers-color-scheme` dentro de um SVG
- *   servido pelo proxy de imagens do GitHub não é confiável; o README escolhe
- *   via <picture media="...">.
+ * - Só tema escuro (ASSET_THEMES.header). O banner é a cena, e uma versão clara
+ *   dela é lava sobre creme: perde a brasa e o contraste do crawl. Quem estiver
+ *   no tema claro do GitHub vê o card escuro, que é o efeito desejado.
  * - A ordem de leitura imita a abertura dos filmes: fala em azul, o crawl
  *   subindo ao centro, e o logotipo (o nome) por último.
  * - O cenário é vetor, não foto. Um still do filme resolveria a estética em
@@ -17,7 +17,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { ASSETS, DATA } from './lib/paths.mjs'
-import { MONO, SANS, THEMES, esc, monoWidth } from './lib/theme.mjs'
+import { MONO, SANS, esc, monoWidth, themesOf } from './lib/theme.mjs'
 import { embers, emberGlow, id, lavaHorizon, ref, saber, sceneDefs, skyGlow, starfield } from './lib/space.mjs'
 
 const W = 1000
@@ -261,7 +261,7 @@ function header(profile, t) {
 const profile = JSON.parse(await readFile(join(DATA, 'profile.json'), 'utf8'))
 await mkdir(ASSETS, { recursive: true })
 
-for (const t of Object.values(THEMES)) {
+for (const t of themesOf('header')) {
   await writeFile(join(ASSETS, `header-${t.id}.svg`), header(profile, t))
   console.log(`✓ assets/header-${t.id}.svg`)
 }

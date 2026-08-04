@@ -6,7 +6,8 @@
  *           lê como arquivo do Império, e amarelo aqui brigaria com a lava.
  * `light` = as cinzas depois da erupção. Existe porque #ff3b30 sobre fundo
  *           claro perde contraste; o tema claro troca para carmim queimado em
- *           vez de simplesmente clarear o escuro.
+ *           vez de simplesmente clarear o escuro. Hoje só o card de stats usa
+ *           (ver ASSET_THEMES).
  *
  * Regra ao mexer: `dim` é o tamanho de texto menor da cena (rótulos de 10.5px
  * em maiúsculas). Se escurecer `dim` no tema escuro, confira o contraste — o
@@ -94,6 +95,22 @@ export const THEMES = {
     glowColor: '#c2410c',
   },
 }
+
+/**
+ * Quais temas cada asset gera. Fonte única da verdade: build, preview, snapshot
+ * e o README leem daqui, então tirar/pôr um tema é mudança de uma linha.
+ *
+ * O header é só escuro de propósito — a cena é crawl em brasa sobre um rio de
+ * lava, e nada disso se traduz para fundo creme. O card de stats é informação,
+ * não cenário, e continua servindo os dois.
+ */
+export const ASSET_THEMES = {
+  header: ['dark'],
+  stats: ['dark', 'light'],
+}
+
+/** Objetos de tema de um asset, na ordem de ASSET_THEMES. */
+export const themesOf = (base) => (ASSET_THEMES[base] ?? ['dark', 'light']).map((id) => THEMES[id])
 
 /** Cores oficiais do Linguist — reconhecíveis, não devem ser tematizadas. */
 export const LANG_COLORS = {

@@ -12,12 +12,13 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { ASSETS, CACHE, ROOT } from './lib/paths.mjs'
+import { ASSET_THEMES } from './lib/theme.mjs'
 
 // 15s: as animações de entrada já congelaram e o crawl (32s de ciclo) está no
 // meio da passada. Em 6s ele ainda entra pela base e o snapshot engana.
 const AT = Number(process.argv[2] ?? 15) // segundos no relógio das animações
-const BASES = ['header', 'stats']
-const THEMES = ['dark', 'light']
+const BASES = Object.keys(ASSET_THEMES)
+const THEMES = [...new Set(Object.values(ASSET_THEMES).flat())]
 
 const read = async (base, theme) => {
   const file = join(ASSETS, `${base}-${theme}.svg`)
@@ -29,7 +30,10 @@ const read = async (base, theme) => {
 const sections = []
 for (const theme of THEMES) {
   const svgs = []
-  for (const base of BASES) svgs.push(await read(base, theme))
+  // O header só tem versão escura — na seção clara entra só o card de stats.
+  for (const base of BASES.filter((b) => ASSET_THEMES[b].includes(theme))) {
+    svgs.push(await read(base, theme))
+  }
   sections.push(`<section class="${theme}">
   <h2>tema ${theme} — animações em t=${AT}s</h2>
   ${svgs.join('\n  ')}

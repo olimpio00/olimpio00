@@ -6,8 +6,12 @@ import { mkdir, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { CACHE, ROOT } from './lib/paths.mjs'
+import { ASSET_THEMES } from './lib/theme.mjs'
 
-const BASES = ['header', 'stats']
+const BASES = Object.keys(ASSET_THEMES)
+
+/** Assets que existem naquele tema — o header só tem versão escura. */
+const basesOf = (theme) => BASES.filter((b) => ASSET_THEMES[b].includes(theme))
 
 const page = `<!doctype html>
 <meta charset="utf-8">
@@ -25,7 +29,9 @@ ${['dark', 'light']
   .map(
     (theme) => `<section class="${theme}">
   <h2>tema ${theme}</h2>
-  ${BASES.map((b) => `<img src="../assets/${b}-${theme}.svg" alt="${b} ${theme}">`).join('\n  ')}
+  ${basesOf(theme)
+    .map((b) => `<img src="../assets/${b}-${theme}.svg" alt="${b} ${theme}">`)
+    .join('\n  ')}
 </section>`
   )
   .join('\n')}

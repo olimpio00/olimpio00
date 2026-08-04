@@ -8,6 +8,7 @@ import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { ASSETS, DATA, ROOT } from './lib/paths.mjs'
 import { collect, shareOf } from './lib/stats.mjs'
+import { ASSET_THEMES } from './lib/theme.mjs'
 
 /**
  * Branch usado nas URLs dos assets. Detectado, não fixo: apontar para "main"
@@ -39,7 +40,7 @@ const RAW = (login, branch) => `https://raw.githubusercontent.com/${login}/${log
  */
 async function assetVersion(base) {
   const hashes = []
-  for (const theme of ['dark', 'light']) {
+  for (const theme of ASSET_THEMES[base]) {
     try {
       const buf = await readFile(join(ASSETS, `${base}-${theme}.svg`))
       hashes.push(createHash('md5').update(buf).digest('hex'))
@@ -62,12 +63,23 @@ const pairBadge = ({ label, value, color, logo, logoColor = 'white' }) => {
   return img
 }
 
-/** <picture> com par claro/escuro — GitHub troca conforme o tema do usuário. */
-const picture = (login, branch, base, alt, v) => `<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="${RAW(login, branch)}/assets/${base}-dark.svg?v=${v}">
-  <source media="(prefers-color-scheme: light)" srcset="${RAW(login, branch)}/assets/${base}-light.svg?v=${v}">
-  <img src="${RAW(login, branch)}/assets/${base}-dark.svg?v=${v}" alt="${alt}" width="100%">
+/**
+ * <picture> com par claro/escuro — GitHub troca conforme o tema do usuário.
+ * Asset de tema único (o header) sai como <img> puro: um <picture> com uma só
+ * fonte é ruído, e o `srcset` de um arquivo que não existe daria 404.
+ */
+function picture(login, branch, base, alt, v) {
+  const src = (theme) => `${RAW(login, branch)}/assets/${base}-${theme}.svg?v=${v}`
+  const themes = ASSET_THEMES[base]
+  const fallback = `<img src="${src('dark')}" alt="${alt}" width="100%">`
+
+  if (themes.length < 2) return fallback
+
+  return `<picture>
+${themes.map((theme) => `  <source media="(prefers-color-scheme: ${theme})" srcset="${src(theme)}">`).join('\n')}
+  ${fallback}
 </picture>`
+}
 
 function contribShare(stats, full) {
   const r = shareOf(stats, full)

@@ -13,7 +13,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { ASSETS, DATA } from './lib/paths.mjs'
-import { MONO, SANS, THEMES, esc, langColor } from './lib/theme.mjs'
+import { MONO, SANS, esc, langColor, themesOf } from './lib/theme.mjs'
 import { emberGlow, id, ref, sceneDefs, skyGlow, starfield } from './lib/space.mjs'
 import { collect } from './lib/stats.mjs'
 
@@ -176,7 +176,7 @@ console.log(`→ coletando dados de ${profile.login}...`)
 const stats = await collect(profile)
 
 await mkdir(ASSETS, { recursive: true })
-for (const t of Object.values(THEMES)) {
+for (const t of themesOf('stats')) {
   await writeFile(join(ASSETS, `stats-${t.id}.svg`), card(stats, t))
   console.log(`✓ assets/stats-${t.id}.svg`)
 }

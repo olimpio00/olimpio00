@@ -4,11 +4,7 @@
 -->
 
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-dark.svg?v=f8d3978d">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-light.svg?v=f8d3978d">
-    <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-dark.svg?v=f8d3978d" alt="Olímpio — Fullstack Developer" width="100%">
-  </picture>
+  <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-dark.svg?v=c1ec6738" alt="Olímpio — Fullstack Developer" width="100%">
 </p>
 
 <p align="center">
