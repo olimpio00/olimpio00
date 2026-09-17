@@ -69,7 +69,7 @@ Gosto de projeto que **roda de ponta a ponta**: interface, API, banco e deploy. 
 
 ### 🏥 [Clínica App — Sistema de Gestão de Clínicas](https://github.com/Gabriel00V-dev/Projeto-LP-6) ![PRIORIDADE MÁXIMA](https://img.shields.io/badge/PRIORIDADE%20M%C3%81XIMA-b91c1c?style=flat-square)
 
-> **Projeto principal** · aplicação **mobile + API** completa, desenvolvida em equipe — sou o maior contribuidor do repositório (31 de 45 commits).
+> **Projeto principal** · aplicação **mobile + API** completa, desenvolvida em equipe — sou o maior contribuidor do repositório (31 de 46 commits).
 
 Plataforma que centraliza dados de clínicas, pacientes e especialidades médicas. Resolve a dispersão de informação e o cadastro duplicado com um controle unificado, e dá ao paciente acesso mobile à busca de clínicas por especialidade.
 
@@ -82,7 +82,7 @@ Plataforma que centraliza dados de clínicas, pacientes e especialidades médica
 - 🏗️ Monorepo `mobile/` + `backend/` com workflows de CI
 - 🎨 Componentes de UI próprios, reaproveitados em todas as telas
 
-<sub>`M-001` &nbsp; `SETOR` Núcleo · Coruscant &nbsp; `CLASSIFICAÇÃO` Equipe · 31 de 45 commits</sub>
+<sub>`M-001` &nbsp; `SETOR` Núcleo · Coruscant &nbsp; `CLASSIFICAÇÃO` Equipe · 31 de 46 commits</sub>
 
 <sub>Projeto acadêmico — não destinado a uso em produção.</sub>
 
@@ -197,9 +197,9 @@ CRUD de **missões no universo de Cassian Andor** — infiltração, sabotagem, 
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-dark.svg?v=70cef4f5">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-light.svg?v=70cef4f5">
-    <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-dark.svg?v=70cef4f5" alt="Estatísticas de olimpio00" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-dark.svg?v=a1d934b5">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-light.svg?v=a1d934b5">
+    <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-dark.svg?v=a1d934b5" alt="Estatísticas de olimpio00" width="100%">
   </picture>
 </p>
 

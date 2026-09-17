@@ -128,22 +128,22 @@
 
     <!-- brilho da "lâmina": a barra emite luz como um sabre -->
     <g clip-path="url(#barClip-dark)" filter="url(#blade-dark)" opacity="0.45">
-      <rect x="64.00" y="208" width="401.95" height="12" fill="#3178c6"/>
-      <rect x="465.95" y="208" width="124.93" height="12" fill="#c6538c"/>
-      <rect x="590.87" y="208" width="114.91" height="12" fill="#e34c26"/>
-      <rect x="705.78" y="208" width="112.05" height="12" fill="#3572a5"/>
-      <rect x="817.83" y="208" width="76.12" height="12" fill="#f1e05a"/>
-      <rect x="893.96" y="208" width="24.68" height="12" fill="#00add8"/>
-      <rect x="918.63" y="208" width="17.37" height="12" fill="#9a8687"/>
+      <rect x="64.00" y="208" width="402.04" height="12" fill="#3178c6"/>
+      <rect x="466.04" y="208" width="124.90" height="12" fill="#c6538c"/>
+      <rect x="590.94" y="208" width="114.88" height="12" fill="#e34c26"/>
+      <rect x="705.83" y="208" width="112.03" height="12" fill="#3572a5"/>
+      <rect x="817.86" y="208" width="76.11" height="12" fill="#f1e05a"/>
+      <rect x="893.96" y="208" width="24.67" height="12" fill="#00add8"/>
+      <rect x="918.64" y="208" width="17.36" height="12" fill="#9a8687"/>
     </g>
     <g clip-path="url(#barClip-dark)">
-      <rect x="64.00" y="208" width="401.95" height="12" fill="#3178c6"/>
-      <rect x="465.95" y="208" width="124.93" height="12" fill="#c6538c"/>
-      <rect x="590.87" y="208" width="114.91" height="12" fill="#e34c26"/>
-      <rect x="705.78" y="208" width="112.05" height="12" fill="#3572a5"/>
-      <rect x="817.83" y="208" width="76.12" height="12" fill="#f1e05a"/>
-      <rect x="893.96" y="208" width="24.68" height="12" fill="#00add8"/>
-      <rect x="918.63" y="208" width="17.37" height="12" fill="#9a8687"/>
+      <rect x="64.00" y="208" width="402.04" height="12" fill="#3178c6"/>
+      <rect x="466.04" y="208" width="124.90" height="12" fill="#c6538c"/>
+      <rect x="590.94" y="208" width="114.88" height="12" fill="#e34c26"/>
+      <rect x="705.83" y="208" width="112.03" height="12" fill="#3572a5"/>
+      <rect x="817.86" y="208" width="76.11" height="12" fill="#f1e05a"/>
+      <rect x="893.96" y="208" width="24.67" height="12" fill="#00add8"/>
+      <rect x="918.64" y="208" width="17.36" height="12" fill="#9a8687"/>
     </g>
     
       <g opacity="0">
@@ -168,7 +168,7 @@
         <animate attributeName="opacity" to="1" dur="0.4s" begin="0.91s" fill="freeze"/>
         <rect x="718.0" y="245" width="9" height="9" rx="2" fill="#3572a5"/>
         <text x="735.0" y="254" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#c2b3b3"
-          >Python <tspan fill="#9a8687">12.9%</tspan></text>
+          >Python <tspan fill="#9a8687">12.8%</tspan></text>
       </g>
       <g opacity="0">
         <animate attributeName="opacity" to="1" dur="0.4s" begin="0.98s" fill="freeze"/>
