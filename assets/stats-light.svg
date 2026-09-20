@@ -128,41 +128,41 @@
 
     <!-- brilho da "lâmina": a barra emite luz como um sabre -->
     <g clip-path="url(#barClip-light)" filter="url(#blade-light)" opacity="0.45">
-      <rect x="64.00" y="208" width="402.04" height="12" fill="#3178c6"/>
-      <rect x="466.04" y="208" width="124.90" height="12" fill="#c6538c"/>
-      <rect x="590.94" y="208" width="114.88" height="12" fill="#e34c26"/>
-      <rect x="705.83" y="208" width="112.03" height="12" fill="#3572a5"/>
-      <rect x="817.86" y="208" width="76.11" height="12" fill="#f1e05a"/>
-      <rect x="893.96" y="208" width="24.67" height="12" fill="#00add8"/>
-      <rect x="918.64" y="208" width="17.36" height="12" fill="#87645c"/>
+      <rect x="64.00" y="208" width="405.06" height="12" fill="#3178c6"/>
+      <rect x="469.06" y="208" width="124.10" height="12" fill="#c6538c"/>
+      <rect x="593.16" y="208" width="114.14" height="12" fill="#e34c26"/>
+      <rect x="707.31" y="208" width="111.31" height="12" fill="#3572a5"/>
+      <rect x="818.62" y="208" width="75.62" height="12" fill="#f1e05a"/>
+      <rect x="894.23" y="208" width="24.51" height="12" fill="#00add8"/>
+      <rect x="918.75" y="208" width="17.25" height="12" fill="#87645c"/>
     </g>
     <g clip-path="url(#barClip-light)">
-      <rect x="64.00" y="208" width="402.04" height="12" fill="#3178c6"/>
-      <rect x="466.04" y="208" width="124.90" height="12" fill="#c6538c"/>
-      <rect x="590.94" y="208" width="114.88" height="12" fill="#e34c26"/>
-      <rect x="705.83" y="208" width="112.03" height="12" fill="#3572a5"/>
-      <rect x="817.86" y="208" width="76.11" height="12" fill="#f1e05a"/>
-      <rect x="893.96" y="208" width="24.67" height="12" fill="#00add8"/>
-      <rect x="918.64" y="208" width="17.36" height="12" fill="#87645c"/>
+      <rect x="64.00" y="208" width="405.06" height="12" fill="#3178c6"/>
+      <rect x="469.06" y="208" width="124.10" height="12" fill="#c6538c"/>
+      <rect x="593.16" y="208" width="114.14" height="12" fill="#e34c26"/>
+      <rect x="707.31" y="208" width="111.31" height="12" fill="#3572a5"/>
+      <rect x="818.62" y="208" width="75.62" height="12" fill="#f1e05a"/>
+      <rect x="894.23" y="208" width="24.51" height="12" fill="#00add8"/>
+      <rect x="918.75" y="208" width="17.25" height="12" fill="#87645c"/>
     </g>
     
       <g opacity="0">
         <animate attributeName="opacity" to="1" dur="0.4s" begin="0.70s" fill="freeze"/>
         <rect x="64.0" y="245" width="9" height="9" rx="2" fill="#3178c6"/>
         <text x="81.0" y="254" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#6b4a44"
-          >TypeScript <tspan fill="#87645c">46.1%</tspan></text>
+          >TypeScript <tspan fill="#87645c">46.5%</tspan></text>
       </g>
       <g opacity="0">
         <animate attributeName="opacity" to="1" dur="0.4s" begin="0.77s" fill="freeze"/>
         <rect x="282.0" y="245" width="9" height="9" rx="2" fill="#c6538c"/>
         <text x="299.0" y="254" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#6b4a44"
-          >SCSS <tspan fill="#87645c">14.3%</tspan></text>
+          >SCSS <tspan fill="#87645c">14.2%</tspan></text>
       </g>
       <g opacity="0">
         <animate attributeName="opacity" to="1" dur="0.4s" begin="0.84s" fill="freeze"/>
         <rect x="500.0" y="245" width="9" height="9" rx="2" fill="#e34c26"/>
         <text x="517.0" y="254" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#6b4a44"
-          >HTML <tspan fill="#87645c">13.2%</tspan></text>
+          >HTML <tspan fill="#87645c">13.1%</tspan></text>
       </g>
       <g opacity="0">
         <animate attributeName="opacity" to="1" dur="0.4s" begin="0.91s" fill="freeze"/>
