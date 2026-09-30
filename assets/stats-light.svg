@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="320" viewBox="0 0 1000 320" role="img" aria-label="Estatísticas do GitHub de olimpio00">
-  <title>olimpio00 — 11 projetos, 138 commits, 7 linguagens</title>
+  <title>olimpio00 — 12 projetos, 143 commits, 8 linguagens</title>
   <defs>
     
     <!-- Régua da base, comum aos dois assets: brasa viva na esquerda apagando
@@ -88,7 +88,7 @@
       <text x="56" y="97" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="10.5"
             letter-spacing="1.4" fill="#87645c">PROJETOS</text>
       <text x="56" y="134" font-family="'Segoe UI','SF Pro Display',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="30"
-            font-weight="700" fill="#b3261e">11</text>
+            font-weight="700" fill="#b3261e">12</text>
     </g>
     <g opacity="0">
       <animate attributeName="opacity" to="1" dur="0.5s" begin="0.20s" fill="freeze"/>
@@ -97,7 +97,7 @@
       <text x="290" y="97" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="10.5"
             letter-spacing="1.4" fill="#87645c">COMMITS MEUS</text>
       <text x="290" y="134" font-family="'Segoe UI','SF Pro Display',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="30"
-            font-weight="700" fill="#b3261e">138</text>
+            font-weight="700" fill="#b3261e">143</text>
     </g>
     <g opacity="0">
       <animate attributeName="opacity" to="1" dur="0.5s" begin="0.30s" fill="freeze"/>
@@ -128,53 +128,53 @@
 
     <!-- brilho da "lâmina": a barra emite luz como um sabre -->
     <g clip-path="url(#barClip-light)" filter="url(#blade-light)" opacity="0.45">
-      <rect x="64.00" y="208" width="405.06" height="12" fill="#3178c6"/>
-      <rect x="469.06" y="208" width="124.10" height="12" fill="#c6538c"/>
-      <rect x="593.16" y="208" width="114.14" height="12" fill="#e34c26"/>
-      <rect x="707.31" y="208" width="111.31" height="12" fill="#3572a5"/>
-      <rect x="818.62" y="208" width="75.62" height="12" fill="#f1e05a"/>
-      <rect x="894.23" y="208" width="24.51" height="12" fill="#00add8"/>
-      <rect x="918.75" y="208" width="17.25" height="12" fill="#87645c"/>
+      <rect x="64.00" y="208" width="402.48" height="12" fill="#3178c6"/>
+      <rect x="466.48" y="208" width="123.31" height="12" fill="#c6538c"/>
+      <rect x="589.79" y="208" width="113.42" height="12" fill="#e34c26"/>
+      <rect x="703.21" y="208" width="110.60" height="12" fill="#3572a5"/>
+      <rect x="813.81" y="208" width="80.59" height="12" fill="#f1e05a"/>
+      <rect x="894.40" y="208" width="24.36" height="12" fill="#00add8"/>
+      <rect x="918.76" y="208" width="17.24" height="12" fill="#87645c"/>
     </g>
     <g clip-path="url(#barClip-light)">
-      <rect x="64.00" y="208" width="405.06" height="12" fill="#3178c6"/>
-      <rect x="469.06" y="208" width="124.10" height="12" fill="#c6538c"/>
-      <rect x="593.16" y="208" width="114.14" height="12" fill="#e34c26"/>
-      <rect x="707.31" y="208" width="111.31" height="12" fill="#3572a5"/>
-      <rect x="818.62" y="208" width="75.62" height="12" fill="#f1e05a"/>
-      <rect x="894.23" y="208" width="24.51" height="12" fill="#00add8"/>
-      <rect x="918.75" y="208" width="17.25" height="12" fill="#87645c"/>
+      <rect x="64.00" y="208" width="402.48" height="12" fill="#3178c6"/>
+      <rect x="466.48" y="208" width="123.31" height="12" fill="#c6538c"/>
+      <rect x="589.79" y="208" width="113.42" height="12" fill="#e34c26"/>
+      <rect x="703.21" y="208" width="110.60" height="12" fill="#3572a5"/>
+      <rect x="813.81" y="208" width="80.59" height="12" fill="#f1e05a"/>
+      <rect x="894.40" y="208" width="24.36" height="12" fill="#00add8"/>
+      <rect x="918.76" y="208" width="17.24" height="12" fill="#87645c"/>
     </g>
     
       <g opacity="0">
         <animate attributeName="opacity" to="1" dur="0.4s" begin="0.70s" fill="freeze"/>
         <rect x="64.0" y="245" width="9" height="9" rx="2" fill="#3178c6"/>
         <text x="81.0" y="254" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#6b4a44"
-          >TypeScript <tspan fill="#87645c">46.5%</tspan></text>
+          >TypeScript <tspan fill="#87645c">46.2%</tspan></text>
       </g>
       <g opacity="0">
         <animate attributeName="opacity" to="1" dur="0.4s" begin="0.77s" fill="freeze"/>
         <rect x="282.0" y="245" width="9" height="9" rx="2" fill="#c6538c"/>
         <text x="299.0" y="254" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#6b4a44"
-          >SCSS <tspan fill="#87645c">14.2%</tspan></text>
+          >SCSS <tspan fill="#87645c">14.1%</tspan></text>
       </g>
       <g opacity="0">
         <animate attributeName="opacity" to="1" dur="0.4s" begin="0.84s" fill="freeze"/>
         <rect x="500.0" y="245" width="9" height="9" rx="2" fill="#e34c26"/>
         <text x="517.0" y="254" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#6b4a44"
-          >HTML <tspan fill="#87645c">13.1%</tspan></text>
+          >HTML <tspan fill="#87645c">13.0%</tspan></text>
       </g>
       <g opacity="0">
         <animate attributeName="opacity" to="1" dur="0.4s" begin="0.91s" fill="freeze"/>
         <rect x="718.0" y="245" width="9" height="9" rx="2" fill="#3572a5"/>
         <text x="735.0" y="254" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#6b4a44"
-          >Python <tspan fill="#87645c">12.8%</tspan></text>
+          >Python <tspan fill="#87645c">12.7%</tspan></text>
       </g>
       <g opacity="0">
         <animate attributeName="opacity" to="1" dur="0.4s" begin="0.98s" fill="freeze"/>
         <rect x="64.0" y="269" width="9" height="9" rx="2" fill="#f1e05a"/>
         <text x="81.0" y="278" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#6b4a44"
-          >JavaScript <tspan fill="#87645c">8.7%</tspan></text>
+          >JavaScript <tspan fill="#87645c">9.2%</tspan></text>
       </g>
       <g opacity="0">
         <animate attributeName="opacity" to="1" dur="0.4s" begin="1.05s" fill="freeze"/>
