@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="320" viewBox="0 0 1000 320" role="img" aria-label="Estatísticas do GitHub de olimpio00">
-  <title>olimpio00 — 12 projetos, 143 commits, 8 linguagens</title>
+  <title>olimpio00 — 12 projetos, 144 commits, 9 linguagens</title>
   <defs>
     
     <!-- Régua da base, comum aos dois assets: brasa viva na esquerda apagando
@@ -97,7 +97,7 @@
       <text x="290" y="97" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="10.5"
             letter-spacing="1.4" fill="#9a8687">COMMITS MEUS</text>
       <text x="290" y="134" font-family="'Segoe UI','SF Pro Display',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="30"
-            font-weight="700" fill="#ff5b52">143</text>
+            font-weight="700" fill="#ff5b52">144</text>
     </g>
     <g opacity="0">
       <animate attributeName="opacity" to="1" dur="0.5s" begin="0.30s" fill="freeze"/>
@@ -128,65 +128,65 @@
 
     <!-- brilho da "lâmina": a barra emite luz como um sabre -->
     <g clip-path="url(#barClip-dark)" filter="url(#blade-dark)" opacity="0.45">
-      <rect x="64.00" y="208" width="402.48" height="12" fill="#3178c6"/>
-      <rect x="466.48" y="208" width="123.31" height="12" fill="#c6538c"/>
-      <rect x="589.79" y="208" width="113.42" height="12" fill="#e34c26"/>
-      <rect x="703.21" y="208" width="110.60" height="12" fill="#3572a5"/>
-      <rect x="813.81" y="208" width="80.59" height="12" fill="#f1e05a"/>
-      <rect x="894.40" y="208" width="24.36" height="12" fill="#00add8"/>
-      <rect x="918.76" y="208" width="17.24" height="12" fill="#9a8687"/>
+      <rect x="64.00" y="208" width="485.49" height="12" fill="#3178c6"/>
+      <rect x="549.49" y="208" width="98.27" height="12" fill="#c6538c"/>
+      <rect x="647.75" y="208" width="90.38" height="12" fill="#e34c26"/>
+      <rect x="738.14" y="208" width="88.14" height="12" fill="#3572a5"/>
+      <rect x="826.28" y="208" width="64.22" height="12" fill="#f1e05a"/>
+      <rect x="890.50" y="208" width="19.41" height="12" fill="#00add8"/>
+      <rect x="909.91" y="208" width="26.09" height="12" fill="#9a8687"/>
     </g>
     <g clip-path="url(#barClip-dark)">
-      <rect x="64.00" y="208" width="402.48" height="12" fill="#3178c6"/>
-      <rect x="466.48" y="208" width="123.31" height="12" fill="#c6538c"/>
-      <rect x="589.79" y="208" width="113.42" height="12" fill="#e34c26"/>
-      <rect x="703.21" y="208" width="110.60" height="12" fill="#3572a5"/>
-      <rect x="813.81" y="208" width="80.59" height="12" fill="#f1e05a"/>
-      <rect x="894.40" y="208" width="24.36" height="12" fill="#00add8"/>
-      <rect x="918.76" y="208" width="17.24" height="12" fill="#9a8687"/>
+      <rect x="64.00" y="208" width="485.49" height="12" fill="#3178c6"/>
+      <rect x="549.49" y="208" width="98.27" height="12" fill="#c6538c"/>
+      <rect x="647.75" y="208" width="90.38" height="12" fill="#e34c26"/>
+      <rect x="738.14" y="208" width="88.14" height="12" fill="#3572a5"/>
+      <rect x="826.28" y="208" width="64.22" height="12" fill="#f1e05a"/>
+      <rect x="890.50" y="208" width="19.41" height="12" fill="#00add8"/>
+      <rect x="909.91" y="208" width="26.09" height="12" fill="#9a8687"/>
     </g>
     
       <g opacity="0">
         <animate attributeName="opacity" to="1" dur="0.4s" begin="0.70s" fill="freeze"/>
         <rect x="64.0" y="245" width="9" height="9" rx="2" fill="#3178c6"/>
         <text x="81.0" y="254" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#c2b3b3"
-          >TypeScript <tspan fill="#9a8687">46.2%</tspan></text>
+          >TypeScript <tspan fill="#9a8687">55.7%</tspan></text>
       </g>
       <g opacity="0">
         <animate attributeName="opacity" to="1" dur="0.4s" begin="0.77s" fill="freeze"/>
         <rect x="282.0" y="245" width="9" height="9" rx="2" fill="#c6538c"/>
         <text x="299.0" y="254" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#c2b3b3"
-          >SCSS <tspan fill="#9a8687">14.1%</tspan></text>
+          >SCSS <tspan fill="#9a8687">11.3%</tspan></text>
       </g>
       <g opacity="0">
         <animate attributeName="opacity" to="1" dur="0.4s" begin="0.84s" fill="freeze"/>
         <rect x="500.0" y="245" width="9" height="9" rx="2" fill="#e34c26"/>
         <text x="517.0" y="254" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#c2b3b3"
-          >HTML <tspan fill="#9a8687">13.0%</tspan></text>
+          >HTML <tspan fill="#9a8687">10.4%</tspan></text>
       </g>
       <g opacity="0">
         <animate attributeName="opacity" to="1" dur="0.4s" begin="0.91s" fill="freeze"/>
         <rect x="718.0" y="245" width="9" height="9" rx="2" fill="#3572a5"/>
         <text x="735.0" y="254" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#c2b3b3"
-          >Python <tspan fill="#9a8687">12.7%</tspan></text>
+          >Python <tspan fill="#9a8687">10.1%</tspan></text>
       </g>
       <g opacity="0">
         <animate attributeName="opacity" to="1" dur="0.4s" begin="0.98s" fill="freeze"/>
         <rect x="64.0" y="269" width="9" height="9" rx="2" fill="#f1e05a"/>
         <text x="81.0" y="278" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#c2b3b3"
-          >JavaScript <tspan fill="#9a8687">9.2%</tspan></text>
+          >JavaScript <tspan fill="#9a8687">7.4%</tspan></text>
       </g>
       <g opacity="0">
         <animate attributeName="opacity" to="1" dur="0.4s" begin="1.05s" fill="freeze"/>
         <rect x="282.0" y="269" width="9" height="9" rx="2" fill="#00add8"/>
         <text x="299.0" y="278" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#c2b3b3"
-          >Go <tspan fill="#9a8687">2.8%</tspan></text>
+          >Go <tspan fill="#9a8687">2.2%</tspan></text>
       </g>
       <g opacity="0">
         <animate attributeName="opacity" to="1" dur="0.4s" begin="1.12s" fill="freeze"/>
         <rect x="500.0" y="269" width="9" height="9" rx="2" fill="#9a8687"/>
         <text x="517.0" y="278" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#c2b3b3"
-          >Outras <tspan fill="#9a8687">2.0%</tspan></text>
+          >Outras <tspan fill="#9a8687">3.0%</tspan></text>
       </g>
 
     <rect x="0" y="317" width="1000" height="3" fill="url(#rule-dark)"/>
