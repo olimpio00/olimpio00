@@ -4,22 +4,24 @@
 -->
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-dark.svg?v=c1ec6738" alt="Olímpio — Fullstack Developer" width="100%">
+  <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/header-dark.svg?v=b74ca364" alt="Olímpio — Fullstack Developer" width="100%">
 </p>
 
 <p align="center">
-  Angular, React &amp; React Native no front, Node/Go/Python no back — de app mobile a overlay em tempo real.
+  <i>Angular, React &amp; React Native no front, Node/Go/Python no back — de app mobile a overlay em tempo real.</i>
 </p>
 
 <p align="center">
-  <a href="https://github.com/olimpio00?tab=repositories"><img src="https://img.shields.io/badge/Projetos-12-8b1a1a?style=flat-square&logo=github&logoColor=white" alt="Projetos"></a>
-  <a href="mailto:olimpiodev@hotmail.com.br"><img src="https://img.shields.io/badge/Email-contato-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email"></a>
-  <img src="https://img.shields.io/badge/Sith%20Lord%20of-Fullstack-000000?style=flat-square&logo=starship&logoColor=e5484d" alt="Sith Lord of">
+  <a href="https://github.com/olimpio00?tab=repositories"><img src="https://img.shields.io/badge/Projetos-12-8b1a1a?style=for-the-badge&labelColor=0d0507&logo=github&logoColor=white" alt="Projetos"></a>
+  <a href="mailto:olimpiodev@hotmail.com.br"><img src="https://img.shields.io/badge/Email-contato-b91c1c?style=for-the-badge&labelColor=0d0507&logo=gmail&logoColor=white" alt="Email"></a>
+  <img src="https://img.shields.io/badge/Sith%20Lord%20of-Fullstack-000000?style=for-the-badge&labelColor=0d0507&logo=starship&logoColor=e5484d" alt="Sith Lord of">
 </p>
 
----
+<br>
 
-## Dossiê do operador
+<p align="center">
+  <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/section-about-dark.svg?v=0cefd4da" alt="Dossiê do operador" width="100%">
+</p>
 
 Desenvolvedor fullstack focado em aplicações web e mobile. No dia a dia trabalho com **Angular + TypeScript** e backends em **Node.js**, e nos projetos pessoais exploro **Go**, **Python** e integrações com APIs de terceiros (Spotify, YouTube, Supabase).
 
@@ -31,41 +33,60 @@ Gosto de projeto que **roda de ponta a ponta**: interface, API, banco e deploy. 
 - 🖥️ Também construo desktop: GUIs em Python empacotadas como executável
 - 🚀 Deploy: Render, GitHub Actions, Firebase Hosting
 
----
+<br>
 
-## Arsenal
+<p align="center">
+  <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/section-stack-dark.svg?v=b5c80476" alt="Arsenal" width="100%">
+</p>
 
-**Linguagens**
+<p>
+  <sub><b>◢ LINGUAGENS</b></sub><br>
+  <img src="https://img.shields.io/badge/TypeScript-0d0507?style=for-the-badge&logo=typescript&logoColor=3178C6" alt="TypeScript">
+  <img src="https://img.shields.io/badge/JavaScript-0d0507?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="JavaScript">
+  <img src="https://img.shields.io/badge/Python-0d0507?style=for-the-badge&logo=python&logoColor=3776AB" alt="Python">
+  <img src="https://img.shields.io/badge/Go-0d0507?style=for-the-badge&logo=go&logoColor=00ADD8" alt="Go">
+</p>
 
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white)
+<p>
+  <sub><b>◢ FRONTEND</b></sub><br>
+  <img src="https://img.shields.io/badge/Angular-0d0507?style=for-the-badge&logo=angular&logoColor=DD0031" alt="Angular">
+  <img src="https://img.shields.io/badge/React-0d0507?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
+  <img src="https://img.shields.io/badge/React%20Native-0d0507?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React Native">
+  <img src="https://img.shields.io/badge/Expo-0d0507?style=for-the-badge&logo=expo&logoColor=white" alt="Expo">
+  <img src="https://img.shields.io/badge/Vite-0d0507?style=for-the-badge&logo=vite&logoColor=646CFF" alt="Vite">
+  <img src="https://img.shields.io/badge/HTML5-0d0507?style=for-the-badge&logo=html5&logoColor=E34F26" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-0d0507?style=for-the-badge&logo=css3&logoColor=1572B6" alt="CSS3">
+</p>
 
-**Frontend**
+<p>
+  <sub><b>◢ BACKEND, DADOS & INFRA</b></sub><br>
+  <img src="https://img.shields.io/badge/Node.js-0d0507?style=for-the-badge&logo=nodedotjs&logoColor=5FA04E" alt="Node.js">
+  <img src="https://img.shields.io/badge/Express-0d0507?style=for-the-badge&logo=express&logoColor=white" alt="Express">
+  <img src="https://img.shields.io/badge/Supabase-0d0507?style=for-the-badge&logo=supabase&logoColor=3FCF8E" alt="Supabase">
+  <img src="https://img.shields.io/badge/PostgreSQL-0d0507?style=for-the-badge&logo=postgresql&logoColor=4169E1" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/GitHub%20Actions-0d0507?style=for-the-badge&logo=githubactions&logoColor=2088FF" alt="GitHub Actions">
+  <img src="https://img.shields.io/badge/Render-0d0507?style=for-the-badge&logo=render&logoColor=white" alt="Render">
+</p>
 
-![Angular](https://img.shields.io/badge/Angular-DD0031?style=flat-square&logo=angular&logoColor=white)
-![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
-![React Native](https://img.shields.io/badge/React%20Native-61DAFB?style=flat-square&logo=react&logoColor=black)
-![Expo](https://img.shields.io/badge/Expo-000020?style=flat-square&logo=expo&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+<br>
 
-**Backend, dados & infra**
+<p align="center">
+  <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/section-duels-dark.svg?v=37cd017d" alt="Holoarquivo" width="100%">
+</p>
 
-![Node.js](https://img.shields.io/badge/Node.js-5FA04E?style=flat-square&logo=nodedotjs&logoColor=white)
-![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white)
-![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
-![Render](https://img.shields.io/badge/Render-000000?style=flat-square&logo=render&logoColor=white)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/duels-dark.svg?v=41515875" alt="HOLOARQUIVO JEDI // DUELOS LENDÁRIOS: Qui-Gon & Obi-Wan vs Darth Maul, Obi-Wan Kenobi vs Anakin Skywalker, Yoda vs Darth Sidious, Obi-Wan Kenobi vs Darth Vader, Luke Skywalker vs Darth Vader, Luke Skywalker vs Darth Vader" width="100%">
+</p>
 
----
+<p align="center">
+  <sub><code>EP I</code> Qui-Gon & Obi-Wan × Darth Maul &nbsp;·&nbsp; <code>EP III</code> Obi-Wan Kenobi × Anakin Skywalker &nbsp;·&nbsp; <code>EP III</code> Yoda × Darth Sidious &nbsp;·&nbsp; <code>EP IV</code> Obi-Wan Kenobi × Darth Vader &nbsp;·&nbsp; <code>EP V</code> Luke Skywalker × Darth Vader &nbsp;·&nbsp; <code>EP VI</code> Luke Skywalker × Darth Vader</sub>
+</p>
 
-## Registros de missão
+<br>
 
-<sub>ARQUIVO CENTRAL · 9 REGISTROS · ACESSO CONCEDIDO</sub>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/section-featured-dark.svg?v=fd639b43" alt="Registros de missão" width="100%">
+</p>
 
 ### 🏥 [Clínica App — Sistema de Gestão de Clínicas](https://github.com/Gabriel00V-dev/Projeto-LP-6) ![PRIORIDADE MÁXIMA](https://img.shields.io/badge/PRIORIDADE%20M%C3%81XIMA-b91c1c?style=flat-square)
 
@@ -191,15 +212,17 @@ CRUD de **missões no universo de Cassian Andor** — infiltração, sabotagem, 
 | [Estagio-etapa-2](https://github.com/olimpio00/Estagio-etapa-2) | Webapp de social media | `Angular` `TypeScript` |
 | [Estagio-etapa-1](https://github.com/olimpio00/Estagio-etapa-1) | Backend da etapa inicial | `JavaScript` `Node.js` |
 
----
+<br>
 
-## Console de bordo
+<p align="center">
+  <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/section-stats-dark.svg?v=3479a978" alt="Console de bordo" width="100%">
+</p>
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-dark.svg?v=e7593448">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-light.svg?v=e7593448">
-    <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-dark.svg?v=e7593448" alt="Estatísticas de olimpio00" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-dark.svg?v=01feee84">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-light.svg?v=01feee84">
+    <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/stats-dark.svg?v=01feee84" alt="Estatísticas de olimpio00" width="100%">
   </picture>
 </p>
 
@@ -207,11 +230,19 @@ CRUD de **missões no universo de Cassian Andor** — infiltração, sabotagem, 
   <sub>Atualizado automaticamente por GitHub Actions a partir da API do GitHub.</sub>
 </p>
 
----
+<br>
 
-## Canal seguro
+<p align="center">
+  <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/section-contact-dark.svg?v=67874ee8" alt="Canal seguro" width="100%">
+</p>
 
-- 📫 **Email:** [olimpiodev@hotmail.com.br](mailto:olimpiodev@hotmail.com.br)
-- 💻 **GitHub:** [@olimpio00](https://github.com/olimpio00)
+<p align="center">
+  <a href="mailto:olimpiodev@hotmail.com.br"><img src="https://img.shields.io/badge/olimpiodev%40hotmail.com.br-b91c1c?style=for-the-badge&labelColor=0d0507&logo=gmail&logoColor=white" alt="Email: olimpiodev@hotmail.com.br"></a>
+  <a href="https://github.com/olimpio00"><img src="https://img.shields.io/badge/%40olimpio00-1b1f24?style=for-the-badge&labelColor=0d0507&logo=github&logoColor=white" alt="GitHub: @olimpio00"></a>
+</p>
 
-<p align="center"><sub>Aberto a oportunidades e colaborações. 🚀</sub></p>
+<br>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/olimpio00/olimpio00/master/assets/footer-dark.svg?v=e2d044aa" alt="Que a Força esteja com você." width="100%">
+</p>

@@ -50,6 +50,15 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+    
+    <pattern id="scan-dark" width="4" height="3" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="#000" opacity="0.2"/>
+    </pattern>
+    <!-- Corta a barra em células de 2px a cada 9px: lê como medidor de
+         energia em vez de gráfico de pizza esticado. -->
+    <pattern id="cells-dark" width="9" height="12" patternUnits="userSpaceOnUse" x="64" y="208">
+      <rect x="7" width="2" height="12" fill="#0b0405"/>
+    </pattern>
     <clipPath id="cardClip-dark">
       <rect x="0" y="0" width="1000" height="320" rx="18"/>
     </clipPath>
@@ -79,12 +88,26 @@
       <circle cx="46" cy="41" r="9" fill="#ff3b30" opacity="0.4" filter="url(#blade-dark)"/>
       <text x="62" y="46" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="12" letter-spacing="2.4"
             fill="#9a8687">SISTEMAS ONLINE · TELEMETRIA GITHUB</text>
+      <rect x="932" y="42.0" width="4" height="4.0" fill="#ff3b30">
+        <animate attributeName="opacity" values="1;0.35;1" dur="1.4s" begin="0.4s" repeatCount="indefinite"/>
+      </rect><rect x="938" y="39.8" width="4" height="6.2" fill="#ff3b30">
+        <animate attributeName="opacity" values="1;0.35;1" dur="1.7s" begin="1.7s" repeatCount="indefinite"/>
+      </rect><rect x="944" y="37.6" width="4" height="8.4" fill="#ff3b30">
+        <animate attributeName="opacity" values="1;0.35;1" dur="2.0s" begin="0.3s" repeatCount="indefinite"/>
+      </rect><rect x="950" y="35.4" width="4" height="10.6" fill="#ff3b30">
+        <animate attributeName="opacity" values="1;0.35;1" dur="2.3s" begin="1.6s" repeatCount="indefinite"/>
+      </rect><rect x="956" y="33.2" width="4" height="12.8" fill="#2a1113">
+        <animate attributeName="opacity" values="1;0.35;1" dur="2.6s" begin="1.4s" repeatCount="indefinite"/>
+      </rect>
     </g>
     
     <g opacity="0">
       <animate attributeName="opacity" to="1" dur="0.5s" begin="0.10s" fill="freeze"/>
-      <rect x="40" y="72" width="220" height="80" rx="8"
+      <path d="M 52 72 H 260 V 140 L 248 152 H 40 V 84 Z"
             fill="#0b0405" fill-opacity="0.92" stroke="#2a1113" stroke-width="1"/>
+      <rect x="40" y="90" width="3" height="44" fill="#ff3b30"/>
+      <path d="M 235 86 L 244 91 L 244 100 L 235 105 L 226 100 L 226 91 Z M 226 91 L 235 96 L 244 91 M 235 96 V 105" fill="none" stroke="#9a8687"
+            stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" opacity="0.8"/>
       <text x="56" y="97" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="10.5"
             letter-spacing="1.4" fill="#9a8687">PROJETOS</text>
       <text x="56" y="134" font-family="'Segoe UI','SF Pro Display',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="30"
@@ -92,8 +115,11 @@
     </g>
     <g opacity="0">
       <animate attributeName="opacity" to="1" dur="0.5s" begin="0.20s" fill="freeze"/>
-      <rect x="274" y="72" width="220" height="80" rx="8"
+      <path d="M 286 72 H 494 V 140 L 482 152 H 274 V 84 Z"
             fill="#0b0405" fill-opacity="0.92" stroke="#2a1113" stroke-width="1"/>
+      <rect x="274" y="90" width="3" height="44" fill="#ff3b30"/>
+      <path d="M 460 95.5 H 465 M 473 95.5 H 478 M 469 91.5 a 4 4 0 1 0 0.01 0 Z" fill="none" stroke="#9a8687"
+            stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" opacity="0.8"/>
       <text x="290" y="97" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="10.5"
             letter-spacing="1.4" fill="#9a8687">COMMITS MEUS</text>
       <text x="290" y="134" font-family="'Segoe UI','SF Pro Display',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="30"
@@ -101,8 +127,11 @@
     </g>
     <g opacity="0">
       <animate attributeName="opacity" to="1" dur="0.5s" begin="0.30s" fill="freeze"/>
-      <rect x="508" y="72" width="220" height="80" rx="8"
+      <path d="M 520 72 H 728 V 140 L 716 152 H 508 V 84 Z"
             fill="#0b0405" fill-opacity="0.92" stroke="#2a1113" stroke-width="1"/>
+      <rect x="508" y="90" width="3" height="44" fill="#ff3b30"/>
+      <path d="M 700 89 L 694 95.5 L 700 102 M 706 89 L 712 95.5 L 706 102 M 704.5 87 L 701.5 104" fill="none" stroke="#9a8687"
+            stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" opacity="0.8"/>
       <text x="524" y="97" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="10.5"
             letter-spacing="1.4" fill="#9a8687">LINGUAGEM-CHEFE</text>
       <text x="524" y="134" font-family="'Segoe UI','SF Pro Display',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="19"
@@ -110,8 +139,11 @@
     </g>
     <g opacity="0">
       <animate attributeName="opacity" to="1" dur="0.5s" begin="0.40s" fill="freeze"/>
-      <rect x="742" y="72" width="220" height="80" rx="8"
+      <path d="M 754 72 H 962 V 140 L 950 152 H 742 V 84 Z"
             fill="#0b0405" fill-opacity="0.92" stroke="#2a1113" stroke-width="1"/>
+      <rect x="742" y="90" width="3" height="44" fill="#ff3b30"/>
+      <path d="M 930 86 H 944 M 930 105 H 944 M 932 86 C 932 93, 942 98, 942 105 M 942 86 C 942 93, 932 98, 932 105" fill="none" stroke="#9a8687"
+            stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" opacity="0.8"/>
       <text x="758" y="97" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="10.5"
             letter-spacing="1.4" fill="#9a8687">ANOS DESDE 2023</text>
       <text x="758" y="134" font-family="'Segoe UI','SF Pro Display',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="30"
@@ -120,8 +152,10 @@
     
     <!-- Painel próprio: texto de 12px sobre o brilho da brasa fica ilegível,
          então o bloco ganha fundo sólido em vez de flutuar sobre o cenário. -->
-    <rect x="40" y="170" width="920" height="126" rx="8"
+    <path d="M 54 170 H 960 V 282 L 946 296 H 40 V 184 Z"
           fill="#0b0405" fill-opacity="0.92" stroke="#2a1113" stroke-width="1"/>
+    <text x="936" y="195" text-anchor="end" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="10.5"
+          letter-spacing="1.4" fill="#9a8687">9 LINGUAGENS · 1,9 MB DE CÓDIGO</text>
 
     <text x="64" y="195" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="1.4"
           fill="#9a8687">DISTRIBUIÇÃO DE CÓDIGO</text>
@@ -144,6 +178,8 @@
       <rect x="826.28" y="208" width="64.22" height="12" fill="#f1e05a"/>
       <rect x="890.50" y="208" width="19.41" height="12" fill="#00add8"/>
       <rect x="909.91" y="208" width="26.09" height="12" fill="#9a8687"/>
+      <rect x="64" y="208" width="872" height="12" fill="url(#cells-dark)"/>
+      <rect x="64" y="208" width="872" height="4.8" fill="#fff" opacity="0.16"/>
     </g>
     
       <g opacity="0">
@@ -189,6 +225,8 @@
           >Outras <tspan fill="#9a8687">3.0%</tspan></text>
       </g>
 
+    <rect width="1000" height="320" fill="url(#scan-dark)"/>
+    <path d="M 12 32 V 12 H 32 M 968 12 H 988 V 32 M 988 288 V 308 H 968 M 32 308 H 12 V 288" fill="none" stroke="#ff3b30" stroke-width="1.6" opacity="0.5"/>
     <rect x="0" y="317" width="1000" height="3" fill="url(#rule-dark)"/>
     <rect x="0" y="0" width="1000" height="320" rx="18" fill="none"
           stroke="#2a1113" stroke-width="2"/>

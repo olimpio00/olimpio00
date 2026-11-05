@@ -54,12 +54,28 @@ async function assetVersion(base) {
 /** Segmento de badge do shields.io: "-" literal precisa virar "--". */
 const seg = (text) => encodeURIComponent(text).replace(/-/g, '--')
 
-const badge = ({ label, color, logo, logoColor = 'white' }) =>
-  `![${label}](https://img.shields.io/badge/${seg(label)}-${color}?style=flat-square&logo=${logo}&logoColor=${logoColor})`
+/** Luminância relativa aproximada de um hex — decide se o logo some no fundo. */
+const luminance = (hex) => {
+  const n = parseInt(hex, 16)
+  const c = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map((v) => v / 255)
+  return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]
+}
+
+/**
+ * Badge do arsenal. Todos com o mesmo fundo quase preto e o logo na cor da
+ * marca: a fileira lê como um painel de equipamentos, não como um arco-íris de
+ * pílulas. Marca de cor escura (Express, Render, Expo) ganha logo branco, senão
+ * desapareceria no fundo.
+ */
+const ARSENAL_BG = '0d0507'
+const badge = ({ label, color, logo }) => {
+  const logoColor = luminance(color) < 0.12 ? 'white' : color
+  return `<img src="https://img.shields.io/badge/${seg(label)}-${ARSENAL_BG}?style=for-the-badge&logo=${logo}&logoColor=${logoColor}" alt="${label}">`
+}
 
 /** Badge de duas partes (rótulo · valor), usado na fileira do topo. */
 const pairBadge = ({ label, value, color, logo, logoColor = 'white' }) => {
-  const img = `<img src="https://img.shields.io/badge/${seg(label)}-${seg(value)}-${color}?style=flat-square${logo ? `&logo=${logo}&logoColor=${logoColor}` : ''}" alt="${label}">`
+  const img = `<img src="https://img.shields.io/badge/${seg(label)}-${seg(value)}-${color}?style=for-the-badge&labelColor=${ARSENAL_BG}${logo ? `&logo=${logo}&logoColor=${logoColor}` : ''}" alt="${label}">`
   return img
 }
 
@@ -80,6 +96,10 @@ ${themes.map((theme) => `  <source media="(prefers-color-scheme: ${theme})" srcs
   ${fallback}
 </picture>`
 }
+
+/** Banner SVG de seção — substitui o "## Título" (o alt carrega o texto). */
+const sectionBanner = (login, branch, key, title, v) =>
+  `<p align="center">\n  <img src="${RAW(login, branch)}/assets/section-${key}-dark.svg?v=${v}" alt="${title}" width="100%">\n</p>`
 
 function contribShare(stats, full) {
   const r = shareOf(stats, full)
@@ -174,8 +194,8 @@ function project(p, index, stats) {
 const SECTIONS = {
   about: 'Sobre mim',
   stack: 'Stack',
+  duels: 'Holoarquivo',
   featured: 'Projetos em destaque',
-  featuredNote: '',
   stats: 'GitHub em números',
   contact: 'Contato',
 }
@@ -183,25 +203,24 @@ const SECTIONS = {
 function render(profile, stats, versions, branch) {
   const { login, name } = profile
   const S = { ...SECTIONS, ...profile.sections }
-  const featuredNote = S.featuredNote
-    ? `\n<sub>${S.featuredNote.replace(/\{\{count\}\}/g, profile.featured.length)}</sub>\n`
-    : ''
+  const banner = (key) => sectionBanner(login, branch, key, S[key] ?? key, versions[`section-${key}`])
+  const tb = (path) => `https://img.shields.io/badge/${path}`
+  const style = `style=for-the-badge&labelColor=${ARSENAL_BG}`
+
   // Vermelho-escuro no primeiro badge, não o azul do GitHub: a fileira fica
   // logo abaixo do banner e o azul quebrava a paleta na primeira linha da página.
   const links = [
-    `<a href="https://github.com/${login}?tab=repositories"><img src="https://img.shields.io/badge/Projetos-${stats.projectCount}-8b1a1a?style=flat-square&logo=github&logoColor=white" alt="Projetos"></a>`,
-    `<a href="mailto:${profile.email}"><img src="https://img.shields.io/badge/Email-contato-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email"></a>`,
+    `<a href="https://github.com/${login}?tab=repositories"><img src="${tb(`Projetos-${stats.projectCount}-8b1a1a`)}?${style}&logo=github&logoColor=white" alt="Projetos"></a>`,
+    `<a href="mailto:${profile.email}"><img src="${tb('Email-contato-b91c1c')}?${style}&logo=gmail&logoColor=white" alt="Email"></a>`,
   ]
-  if (profile.linkedin) {
-    links.push(
-      `<a href="${profile.linkedin}"><img src="https://img.shields.io/badge/LinkedIn-perfil-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a>`
-    )
-  }
-  if (profile.website) {
-    links.push(
-      `<a href="${profile.website}"><img src="https://img.shields.io/badge/Portfólio-online-3FCF8E?style=flat-square&logo=googlechrome&logoColor=white" alt="Portfólio"></a>`
-    )
-  }
+  const linkedin = profile.linkedin
+    ? `<a href="${profile.linkedin}"><img src="${tb('LinkedIn-perfil-0A66C2')}?${style}&logo=linkedin&logoColor=white" alt="LinkedIn"></a>`
+    : ''
+  const website = profile.website
+    ? `<a href="${profile.website}"><img src="${tb(`${seg('Portfólio')}-online-3FCF8E`)}?${style}&logo=googlechrome&logoColor=white" alt="Portfólio"></a>`
+    : ''
+  if (linkedin) links.push(linkedin)
+  if (website) links.push(website)
   // Badges decorativos (sem link) fecham a fileira — vêm por último de propósito:
   // o que é clicável fica junto, à esquerda.
   for (const b of profile.extraBadges ?? []) links.push(pairBadge(b))
@@ -214,6 +233,32 @@ function render(profile, stats, versions, branch) {
     ),
   ].join('\n')
 
+  // Holoarquivo: só entra se houver duelos no JSON.
+  const duels = profile.duels?.items ?? []
+  const duelsAlt = duels.map((d) => `${d.left.name} vs ${d.right.name}`).join(', ')
+  const duelsBlock = duels.length
+    ? `${banner('duels')}
+
+<p align="center">
+  ${picture(login, branch, 'duels', `${profile.duels.title}: ${duelsAlt}`, versions.duels)}
+</p>
+
+<p align="center">
+  <sub>${duels.map((d) => `<code>${d.episode.replace('EPISÓDIO ', 'EP ')}</code> ${d.left.name} × ${d.right.name}`).join(' &nbsp;·&nbsp; ')}</sub>
+</p>
+
+<br>
+
+`
+    : ''
+
+  const contact = [
+    `<a href="mailto:${profile.email}"><img src="${tb(`${seg(profile.email)}-b91c1c`)}?${style}&logo=gmail&logoColor=white" alt="Email: ${profile.email}"></a>`,
+    `<a href="https://github.com/${login}"><img src="${tb(`${seg('@' + login)}-1b1f24`)}?${style}&logo=github&logoColor=white" alt="GitHub: @${login}"></a>`,
+    linkedin,
+    website,
+  ].filter(Boolean)
+
   return `<!--
   ⚠️  Arquivo gerado por scripts/generate-readme.mjs — não edite à mão.
       Edite data/profile.json e rode: npm run build
@@ -224,33 +269,33 @@ function render(profile, stats, versions, branch) {
 </p>
 
 <p align="center">
-  ${profile.tagline}
+  <i>${profile.tagline}</i>
 </p>
 
 <p align="center">
   ${links.join('\n  ')}
 </p>
 
----
+<br>
 
-## ${S.about}
+${banner('about')}
 
 ${profile.about.paragraphs.join('\n\n')}
 
 ${profile.about.bullets.map((b) => `- ${b}`).join('\n')}
 
----
+<br>
 
-## ${S.stack}
+${banner('stack')}
 
 ${profile.stack
-  .map((g) => `**${g.group}**\n\n${g.badges.map(badge).join('\n')}`)
+  .map((g) => `<p>\n  <sub><b>◢ ${g.group.toUpperCase()}</b></sub><br>\n  ${g.badges.map(badge).join('\n  ')}\n</p>`)
   .join('\n\n')}
 
----
+<br>
 
-## ${S.featured}
-${featuredNote}
+${duelsBlock}${banner('featured')}
+
 ${profile.featured.map((p, i) => project(p, i, stats)).join('\n\n---\n\n')}
 
 ---
@@ -259,9 +304,9 @@ ${profile.featured.map((p, i) => project(p, i, stats)).join('\n\n---\n\n')}
 
 ${table}
 
----
+<br>
 
-## ${S.stats}
+${banner('stats')}
 
 <p align="center">
   ${picture(login, branch, 'stats', `Estatísticas de ${login}`, versions.stats).split('\n').join('\n  ')}
@@ -271,24 +316,27 @@ ${table}
   <sub>Atualizado automaticamente por GitHub Actions a partir da API do GitHub.</sub>
 </p>
 
----
+<br>
 
-## ${S.contact}
+${banner('contact')}
 
-- 📫 **Email:** [${profile.email}](mailto:${profile.email})
-- 💻 **GitHub:** [@${login}](https://github.com/${login})
-${profile.linkedin ? `- 💼 **LinkedIn:** ${profile.linkedin}\n` : ''}${profile.website ? `- 🌐 **Portfólio:** ${profile.website}\n` : ''}
-<p align="center"><sub>${profile.closing}</sub></p>
+<p align="center">
+  ${contact.join('\n  ')}
+</p>
+
+<br>
+
+<p align="center">
+  ${picture(login, branch, 'footer', profile.footer?.quote ?? profile.closing, versions.footer)}
+</p>
 `
 }
 
 const profile = JSON.parse(await readFile(join(DATA, 'profile.json'), 'utf8'))
 console.log(`→ coletando dados de ${profile.login}...`)
 const stats = await collect(profile)
-const versions = {
-  header: await assetVersion('header'),
-  stats: await assetVersion('stats'),
-}
+const versions = {}
+for (const base of Object.keys(ASSET_THEMES)) versions[base] = await assetVersion(base)
 const branch = detectBranch(profile.branch)
 
 await writeFile(join(ROOT, 'README.md'), render(profile, stats, versions, branch))

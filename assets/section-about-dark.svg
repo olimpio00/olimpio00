@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="92" viewBox="0 0 1000 92" role="img" aria-label="Dossiê do operador">
+  <title>Dossiê do operador</title>
+  <defs>
+    <linearGradient id="bg-dark-sec-about" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1c0608"/>
+      <stop offset="0.45" stop-color="#0b0405"/>
+      <stop offset="1" stop-color="#010409"/>
+    </linearGradient>
+    <linearGradient id="sweep-dark-sec-about" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff3b30" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#ff3b30" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#ff3b30" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="rule-dark-sec-about" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff3b30"/>
+      <stop offset="0.6" stop-color="#e5484d" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#e5484d" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="blade-dark-sec-about" x="-20%" y="-300%" width="140%" height="700%"><feGaussianBlur stdDeviation="3"/></filter>
+    
+    <pattern id="scan-dark-sec-about" width="4" height="3" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="#000" opacity="0.25"/>
+    </pattern>
+    <clipPath id="clip-dark-sec-about"><path d="M 17 1 H 999 V 75 L 983 91 H 1 V 17 Z"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#clip-dark-sec-about)">
+    <rect width="1000" height="92" fill="url(#bg-dark-sec-about)"/>
+    <g><circle cx="795.2" cy="76.1" r="1.16" fill="#ffffff" opacity="0.47"><animate attributeName="opacity" values="0.47;0.09;0.47" dur="3.7s" begin="1.2s" repeatCount="indefinite"/></circle><circle cx="110.7" cy="69.7" r="1.17" fill="#ffffff" opacity="0.41"><animate attributeName="opacity" values="0.41;0.08;0.41" dur="5.1s" begin="2.0s" repeatCount="indefinite"/></circle><circle cx="557.0" cy="4.0" r="0.65" fill="#ffffff" opacity="0.33"></circle><circle cx="818.0" cy="23.8" r="0.79" fill="#ffffff" opacity="0.45"></circle><circle cx="175.1" cy="13.9" r="0.61" fill="#ffffff" opacity="0.45"></circle><circle cx="709.7" cy="42.5" r="1.46" fill="#ffffff" opacity="0.35"></circle><circle cx="736.7" cy="12.4" r="0.79" fill="#ffffff" opacity="0.38"></circle><circle cx="214.7" cy="2.6" r="0.44" fill="#ffffff" opacity="0.42"></circle><circle cx="805.0" cy="64.3" r="0.49" fill="#ffffff" opacity="0.45"></circle><circle cx="137.9" cy="5.5" r="1.02" fill="#ffffff" opacity="0.46"></circle><circle cx="259.1" cy="47.4" r="0.60" fill="#ffffff" opacity="0.44"></circle><circle cx="606.0" cy="18.6" r="1.31" fill="#ffffff" opacity="0.37"><animate attributeName="opacity" values="0.37;0.07;0.37" dur="3.6s" begin="2.5s" repeatCount="indefinite"/></circle><circle cx="817.1" cy="62.9" r="0.87" fill="#ffffff" opacity="0.36"></circle><circle cx="858.5" cy="11.8" r="0.43" fill="#ffffff" opacity="0.31"></circle><circle cx="22.5" cy="64.2" r="0.74" fill="#ffffff" opacity="0.32"></circle><circle cx="896.6" cy="52.9" r="0.50" fill="#ffffff" opacity="0.48"></circle><circle cx="396.6" cy="12.1" r="0.51" fill="#ffffff" opacity="0.32"><animate attributeName="opacity" values="0.32;0.06;0.32" dur="2.7s" begin="0.6s" repeatCount="indefinite"/></circle><circle cx="528.0" cy="91.7" r="1.41" fill="#ffffff" opacity="0.27"></circle><circle cx="912.2" cy="64.8" r="0.94" fill="#ffffff" opacity="0.30"></circle><circle cx="463.7" cy="83.1" r="0.84" fill="#ffffff" opacity="0.37"></circle><circle cx="931.7" cy="50.2" r="1.33" fill="#ffffff" opacity="0.47"><animate attributeName="opacity" values="0.47;0.09;0.47" dur="2.9s" begin="4.0s" repeatCount="indefinite"/></circle><circle cx="439.3" cy="66.5" r="0.84" fill="#ffffff" opacity="0.32"><animate attributeName="opacity" values="0.32;0.06;0.32" dur="5.2s" begin="4.0s" repeatCount="indefinite"/></circle><circle cx="543.0" cy="53.5" r="0.80" fill="#ffffff" opacity="0.42"></circle><circle cx="982.7" cy="57.7" r="0.50" fill="#ffffff" opacity="0.31"><animate attributeName="opacity" values="0.31;0.06;0.31" dur="4.9s" begin="2.7s" repeatCount="indefinite"/></circle><circle cx="721.4" cy="73.5" r="1.40" fill="#ffffff" opacity="0.27"></circle><circle cx="117.5" cy="21.0" r="0.73" fill="#ffffff" opacity="0.32"><animate attributeName="opacity" values="0.32;0.06;0.32" dur="3.6s" begin="3.6s" repeatCount="indefinite"/></circle></g>
+
+    <!-- varredura do scanner -->
+    <rect x="-220" y="0" width="220" height="92" fill="url(#sweep-dark-sec-about)">
+      <animateTransform attributeName="transform" type="translate" values="0 0; 1440 0" dur="6.5s" begin="0.0s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- número do arquivo -->
+    <path d="M 28 16 H 76 V 66 L 66 76 H 18 V 26 Z" fill="#010409" stroke="#ff3b30" stroke-opacity="0.7" stroke-width="1.5"/>
+    <text x="47" y="34" text-anchor="middle" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="9" letter-spacing="2" fill="#9a8687">ARQ</text>
+    <text x="47" y="62" text-anchor="middle" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="24" font-weight="700" fill="#ff5b52">01</text>
+
+    <text x="96" y="48" font-family="'Segoe UI','SF Pro Display',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="29" font-weight="800" letter-spacing="2.5" fill="#f5f7fa">DOSSIÊ DO OPERADOR</text>
+    <text x="98" y="70" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="11" letter-spacing="2.2" fill="#9a8687">PERFIL DO OPERADOR · NÍVEL DE ACESSO: LIVRE</text>
+
+    <path d="M 757 22 V 31 M 751 22 V 31 M 764 22 V 31 M 761 26.5 H 767 M 771 31 H 777 M 774 22 V 31 M 771 22 L 777 31 M 781 22 H 787 M 781 31 H 787 M 781 22 V 31 M 794 22 V 31 M 791 22 V 31 M 791 31 H 797 M 810 31 H 816 M 813 22 V 31 M 820 26.5 H 826 M 826 22 V 31 M 826 22 L 820 31 M 836 22 L 830 31 M 830 26.5 H 836 M 840 22 V 31 M 840 22 L 846 31 M 850 31 H 856 M 850 22 H 856 M 869 26.5 H 875 M 872 22 V 31 M 879 22 H 885 M 882 22 V 31 M 885 22 L 879 31 M 889 22 H 895 M 889 22 L 895 31 M 899 22 L 905 31 M 899 22 V 31 M 899 31 H 905 M 918 26.5 H 924 M 918 22 L 924 31 M 918 31 H 924 M 934 22 V 31 M 928 22 H 934 M 928 26.5 H 934 M 938 26.5 H 944 M 944 22 V 31 M 941 22 V 31 M 948 22 H 954 M 948 22 V 31 M 958 22 H 964 M 958 26.5 H 964 M 958 22 V 31" fill="none" stroke="#c2b3b3" stroke-width="1.4"
+          stroke-linecap="square" opacity="0.4"/>
+    <rect x="796" y="52" width="8" height="8" fill="#2a1113" opacity="1"></rect><rect x="808" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="3.0s" begin="0.37s" repeatCount="indefinite"/></rect><rect x="820" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="2.7s" begin="0.74s" repeatCount="indefinite"/></rect><rect x="832" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="2.4s" begin="1.11s" repeatCount="indefinite"/></rect><rect x="844" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="2.1s" begin="1.48s" repeatCount="indefinite"/></rect><rect x="856" y="52" width="8" height="8" fill="#2a1113" opacity="1"></rect><rect x="868" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="1.5s" begin="0.22s" repeatCount="indefinite"/></rect><rect x="880" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="1.2s" begin="0.59s" repeatCount="indefinite"/></rect><rect x="892" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="3.0s" begin="0.96s" repeatCount="indefinite"/></rect><rect x="904" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="2.7s" begin="1.33s" repeatCount="indefinite"/></rect><rect x="916" y="52" width="8" height="8" fill="#2a1113" opacity="1"></rect><rect x="928" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="2.1s" begin="0.07s" repeatCount="indefinite"/></rect><rect x="940" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="1.8s" begin="0.44s" repeatCount="indefinite"/></rect><rect x="952" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="1.5s" begin="0.81s" repeatCount="indefinite"/></rect>
+
+    <rect width="1000" height="92" fill="url(#scan-dark-sec-about)"/>
+    <rect x="0" y="89" width="1000" height="3" fill="url(#rule-dark-sec-about)"/>
+  </g>
+  <path d="M 17 1 H 999 V 75 L 983 91 H 1 V 17 Z" fill="none" stroke="#2a1113" stroke-width="2"/>
+</svg>

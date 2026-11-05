@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="92" viewBox="0 0 1000 92" role="img" aria-label="Canal seguro">
+  <title>Canal seguro</title>
+  <defs>
+    <linearGradient id="bg-dark-sec-contact" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1c0608"/>
+      <stop offset="0.45" stop-color="#0b0405"/>
+      <stop offset="1" stop-color="#010409"/>
+    </linearGradient>
+    <linearGradient id="sweep-dark-sec-contact" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff3b30" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#ff3b30" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#ff3b30" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="rule-dark-sec-contact" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff3b30"/>
+      <stop offset="0.6" stop-color="#e5484d" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#e5484d" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="blade-dark-sec-contact" x="-20%" y="-300%" width="140%" height="700%"><feGaussianBlur stdDeviation="3"/></filter>
+    
+    <pattern id="scan-dark-sec-contact" width="4" height="3" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="#000" opacity="0.25"/>
+    </pattern>
+    <clipPath id="clip-dark-sec-contact"><path d="M 17 1 H 999 V 75 L 983 91 H 1 V 17 Z"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#clip-dark-sec-contact)">
+    <rect width="1000" height="92" fill="url(#bg-dark-sec-contact)"/>
+    <g><circle cx="905.9" cy="38.4" r="1.23" fill="#ffffff" opacity="0.40"></circle><circle cx="56.2" cy="87.1" r="0.99" fill="#ffffff" opacity="0.49"></circle><circle cx="935.7" cy="16.8" r="1.24" fill="#ffffff" opacity="0.34"></circle><circle cx="498.8" cy="70.2" r="0.54" fill="#ffffff" opacity="0.32"></circle><circle cx="374.0" cy="83.5" r="0.83" fill="#ffffff" opacity="0.28"><animate attributeName="opacity" values="0.28;0.06;0.28" dur="3.3s" begin="0.1s" repeatCount="indefinite"/></circle><circle cx="200.7" cy="12.2" r="0.74" fill="#ffffff" opacity="0.48"></circle><circle cx="215.0" cy="40.4" r="1.40" fill="#ffffff" opacity="0.36"><animate attributeName="opacity" values="0.36;0.07;0.36" dur="2.7s" begin="0.5s" repeatCount="indefinite"/></circle><circle cx="929.8" cy="72.3" r="0.86" fill="#ffffff" opacity="0.41"><animate attributeName="opacity" values="0.41;0.08;0.41" dur="3.0s" begin="1.8s" repeatCount="indefinite"/></circle><circle cx="71.9" cy="55.0" r="0.58" fill="#ffffff" opacity="0.25"></circle><circle cx="872.7" cy="75.7" r="0.45" fill="#ffffff" opacity="0.48"></circle><circle cx="609.8" cy="10.4" r="0.73" fill="#ffffff" opacity="0.37"><animate attributeName="opacity" values="0.37;0.07;0.37" dur="2.9s" begin="3.3s" repeatCount="indefinite"/></circle><circle cx="152.8" cy="64.9" r="0.56" fill="#ffffff" opacity="0.41"></circle><circle cx="400.5" cy="46.7" r="1.37" fill="#ffffff" opacity="0.35"></circle><circle cx="691.4" cy="15.5" r="0.62" fill="#ffffff" opacity="0.31"></circle><circle cx="711.9" cy="68.7" r="1.34" fill="#ffffff" opacity="0.42"></circle><circle cx="936.2" cy="40.5" r="0.41" fill="#ffffff" opacity="0.32"></circle><circle cx="595.8" cy="81.8" r="0.51" fill="#ffffff" opacity="0.25"></circle><circle cx="768.0" cy="38.3" r="0.85" fill="#ffffff" opacity="0.46"><animate attributeName="opacity" values="0.46;0.09;0.46" dur="4.8s" begin="1.4s" repeatCount="indefinite"/></circle><circle cx="508.5" cy="60.6" r="1.07" fill="#ffffff" opacity="0.38"></circle><circle cx="713.2" cy="19.8" r="0.58" fill="#ffffff" opacity="0.31"></circle><circle cx="260.8" cy="2.0" r="1.04" fill="#ffffff" opacity="0.45"></circle><circle cx="189.8" cy="63.0" r="1.07" fill="#ffffff" opacity="0.25"></circle><circle cx="366.2" cy="49.1" r="0.75" fill="#ffffff" opacity="0.32"></circle><circle cx="700.1" cy="65.4" r="0.84" fill="#ffffff" opacity="0.45"></circle><circle cx="627.7" cy="41.3" r="1.40" fill="#ffffff" opacity="0.38"></circle><circle cx="986.4" cy="23.1" r="1.14" fill="#ffffff" opacity="0.49"></circle></g>
+
+    <!-- varredura do scanner -->
+    <rect x="-220" y="0" width="220" height="92" fill="url(#sweep-dark-sec-contact)">
+      <animateTransform attributeName="transform" type="translate" values="0 0; 1440 0" dur="6.5s" begin="4.0s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- número do arquivo -->
+    <path d="M 28 16 H 76 V 66 L 66 76 H 18 V 26 Z" fill="#010409" stroke="#ff3b30" stroke-opacity="0.7" stroke-width="1.5"/>
+    <text x="47" y="34" text-anchor="middle" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="9" letter-spacing="2" fill="#9a8687">ARQ</text>
+    <text x="47" y="62" text-anchor="middle" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="24" font-weight="700" fill="#ff5b52">06</text>
+
+    <text x="96" y="48" font-family="'Segoe UI','SF Pro Display',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="29" font-weight="800" letter-spacing="2.5" fill="#f5f7fa">CANAL SEGURO</text>
+    <text x="98" y="70" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="11" letter-spacing="2.2" fill="#9a8687">TRANSMISSÃO CRIPTOGRAFADA · RESPOSTA RÁPIDA</text>
+
+    <path d="M 748 22 L 742 31 M 742 22 L 748 31 M 752 22 L 758 31 M 758 22 L 752 31 M 752 31 H 758 M 762 22 V 31 M 768 22 L 762 31 M 768 22 V 31 M 772 22 H 778 M 772 22 V 31 M 778 22 L 772 31 M 782 22 H 788 M 782 31 H 788 M 801 22 H 807 M 801 31 H 807 M 811 22 V 31 M 817 22 L 811 31 M 821 31 H 827 M 827 22 V 31 M 827 22 L 821 31 M 840 22 H 846 M 840 31 H 846 M 853 22 V 31 M 856 22 V 31 M 850 26.5 H 856 M 860 31 H 866 M 866 22 V 31 M 870 22 L 876 31 M 870 31 H 876 M 880 22 V 31 M 883 22 V 31 M 899 22 H 905 M 905 22 L 899 31 M 905 22 V 31 M 909 22 H 915 M 909 22 V 31 M 915 22 V 31 M 919 31 H 925 M 922 22 V 31 M 929 26.5 H 935 M 929 31 H 935 M 948 22 L 954 31 M 954 22 V 31 M 954 22 L 948 31 M 964 22 V 31 M 958 26.5 H 964" fill="none" stroke="#c2b3b3" stroke-width="1.4"
+          stroke-linecap="square" opacity="0.4"/>
+    <rect x="796" y="52" width="8" height="8" fill="#2a1113" opacity="1"></rect><rect x="808" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="3.0s" begin="0.37s" repeatCount="indefinite"/></rect><rect x="820" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="2.7s" begin="0.74s" repeatCount="indefinite"/></rect><rect x="832" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="2.4s" begin="1.11s" repeatCount="indefinite"/></rect><rect x="844" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="2.1s" begin="1.48s" repeatCount="indefinite"/></rect><rect x="856" y="52" width="8" height="8" fill="#2a1113" opacity="1"></rect><rect x="868" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="1.5s" begin="0.22s" repeatCount="indefinite"/></rect><rect x="880" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="1.2s" begin="0.59s" repeatCount="indefinite"/></rect><rect x="892" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="3.0s" begin="0.96s" repeatCount="indefinite"/></rect><rect x="904" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="2.7s" begin="1.33s" repeatCount="indefinite"/></rect><rect x="916" y="52" width="8" height="8" fill="#2a1113" opacity="1"></rect><rect x="928" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="2.1s" begin="0.07s" repeatCount="indefinite"/></rect><rect x="940" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="1.8s" begin="0.44s" repeatCount="indefinite"/></rect><rect x="952" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="1.5s" begin="0.81s" repeatCount="indefinite"/></rect>
+
+    <rect width="1000" height="92" fill="url(#scan-dark-sec-contact)"/>
+    <rect x="0" y="89" width="1000" height="3" fill="url(#rule-dark-sec-contact)"/>
+  </g>
+  <path d="M 17 1 H 999 V 75 L 983 91 H 1 V 17 Z" fill="none" stroke="#2a1113" stroke-width="2"/>
+</svg>

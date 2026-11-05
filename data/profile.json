@@ -11,6 +11,8 @@
 
   "header": {
     "opening": "Há muito tempo, num repositório muito, muito distante…",
+    "hudLeft": "ARQUIVO IMPERIAL // TERMINAL OL-00",
+    "hudRight": "SETOR MUSTAFAR · SINAL ESTÁVEL",
     "crawl": {
       "episode": "EPISÓDIO I",
       "title": "O PORTFÓLIO",
@@ -35,13 +37,49 @@
     }
   ],
 
+  "_comment_duels": "Holoarquivo (assets/duels-dark.svg). 'scene' escolhe o cenário desenhado em scripts/build-duels.mjs; color: blue | green | red.",
+  "duels": {
+    "title": "HOLOARQUIVO JEDI // DUELOS LENDÁRIOS",
+    "items": [
+      { "scene": "theed", "episode": "EPISÓDIO I", "film": "A Ameaça Fantasma", "year": "1999", "place": "Gerador de Theed · Naboo",
+        "left": { "name": "Qui-Gon & Obi-Wan", "color": "green" }, "right": { "name": "Darth Maul", "color": "red" } },
+      { "scene": "mustafar", "episode": "EPISÓDIO III", "film": "A Vingança dos Sith", "year": "2005", "place": "Rios de lava · Mustafar",
+        "left": { "name": "Obi-Wan Kenobi", "color": "blue" }, "right": { "name": "Anakin Skywalker", "color": "blue" } },
+      { "scene": "senate", "episode": "EPISÓDIO III", "film": "A Vingança dos Sith", "year": "2005", "place": "Câmara do Senado · Coruscant",
+        "left": { "name": "Yoda", "color": "green" }, "right": { "name": "Darth Sidious", "color": "red" } },
+      { "scene": "deathStar", "episode": "EPISÓDIO IV", "film": "Uma Nova Esperança", "year": "1977", "place": "Hangar · Estrela da Morte",
+        "left": { "name": "Obi-Wan Kenobi", "color": "blue" }, "right": { "name": "Darth Vader", "color": "red" } },
+      { "scene": "bespin", "episode": "EPISÓDIO V", "film": "O Império Contra-Ataca", "year": "1980", "place": "Poço do reator · Cidade das Nuvens",
+        "left": { "name": "Luke Skywalker", "color": "blue" }, "right": { "name": "Darth Vader", "color": "red" } },
+      { "scene": "throne", "episode": "EPISÓDIO VI", "film": "O Retorno de Jedi", "year": "1983", "place": "Sala do trono · Estrela da Morte II",
+        "left": { "name": "Luke Skywalker", "color": "green" }, "right": { "name": "Darth Vader", "color": "red" } }
+    ]
+  },
+
   "sections": {
     "about": "Dossiê do operador",
     "stack": "Arsenal",
+    "duels": "Holoarquivo",
     "featured": "Registros de missão",
-    "featuredNote": "ARQUIVO CENTRAL · {{count}} REGISTROS · ACESSO CONCEDIDO",
+    "featuredNote": "",
     "stats": "Console de bordo",
     "contact": "Canal seguro"
+  },
+
+  "_comment_sectionTags": "Subtítulo em monoespaçada de cada banner de seção. {{count}} = nº de destaques.",
+  "sectionTags": {
+    "about": "PERFIL DO OPERADOR · NÍVEL DE ACESSO: LIVRE",
+    "stack": "EQUIPAMENTO HOMOLOGADO PARA COMBATE",
+    "duels": "OS DUELOS MAIS ICÔNICOS DA GALÁXIA · EM LOOP",
+    "featured": "ARQUIVO CENTRAL · {{count}} REGISTROS · ACESSO CONCEDIDO",
+    "stats": "TELEMETRIA AO VIVO DA API DO GITHUB",
+    "contact": "TRANSMISSÃO CRIPTOGRAFADA · RESPOSTA RÁPIDA"
+  },
+
+  "footer": {
+    "over": "FIM DA TRANSMISSÃO",
+    "quote": "Que a Força esteja com você.",
+    "under": "aberto a oportunidades e colaborações"
   },
 
   "extraRepos": ["Gabriel00V-dev/Projeto-LP-6"],

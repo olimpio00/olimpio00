@@ -100,13 +100,22 @@ export const THEMES = {
  * Quais temas cada asset gera. Fonte única da verdade: build, preview, snapshot
  * e o README leem daqui, então tirar/pôr um tema é mudança de uma linha.
  *
- * O header é só escuro de propósito — a cena é crawl em brasa sobre um rio de
+ * Header, duelos, banners e rodapé são só escuros de propósito — a cena é crawl em brasa sobre um rio de
  * lava, e nada disso se traduz para fundo creme. O card de stats é informação,
  * não cenário, e continua servindo os dois.
  */
+/**
+ * Seções do README, na ordem em que aparecem. Cada uma ganha um banner SVG
+ * (assets/section-<chave>-dark.svg); o título vem de profile.sections.
+ */
+export const SECTION_KEYS = ['about', 'stack', 'duels', 'featured', 'stats', 'contact']
+
 export const ASSET_THEMES = {
   header: ['dark'],
+  duels: ['dark'],
   stats: ['dark', 'light'],
+  ...Object.fromEntries(SECTION_KEYS.map((k) => [`section-${k}`, ['dark']])),
+  footer: ['dark'],
 }
 
 /** Objetos de tema de um asset, na ordem de ASSET_THEMES. */

@@ -18,7 +18,9 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { ASSETS, DATA } from './lib/paths.mjs'
 import { MONO, SANS, esc, monoWidth, themesOf } from './lib/theme.mjs'
-import { embers, emberGlow, id, lavaHorizon, ref, saber, sceneDefs, skyGlow, starfield } from './lib/space.mjs'
+import { embers, emberGlow, id, lavaHorizon, ref, sceneDefs, skyGlow, starfield } from './lib/space.mjs'
+import { brackets, glyphStrip, scanlineDef, signalBars } from './lib/hud.mjs'
+import { bolts, hyperspaceExit, ringedPlanet, wedgeShip } from './lib/ships.mjs'
 
 const W = 1000
 const H = 480
@@ -26,13 +28,13 @@ const CYCLE = 9 // segundos do ciclo completo do subtítulo rotativo
 const SEED = 20260730 // fixo: mesmo céu em todo build
 
 // Faixa reservada ao crawl. Fica entre a fala de abertura e o horizonte.
-const CRAWL_TOP = 72
+const CRAWL_TOP = 84
 const CRAWL_BOTTOM = 272
 /**
  * Largura útil do texto, centralizado em W/2. Mais largo que a versão anterior
  * porque não há mais nada no lado direito da cena para desviar.
  */
-const CRAWL_WIDTH = 660
+const CRAWL_WIDTH = 620
 const CRAWL_DUR = 32 // segundos de uma passada completa
 const CRAWL_SCALE_END = 0.42 // quanto o bloco encolhe ao "se afastar"
 /**
@@ -40,7 +42,7 @@ const CRAWL_SCALE_END = 0.42 // quanto o bloco encolhe ao "se afastar"
  * mostrar título + início do primeiro parágrafo em vez de um recorte no meio
  * de uma frase.
  */
-const CRAWL_BASE_Y = 118
+const CRAWL_BASE_Y = 130
 
 /**
  * Linha do horizonte. Tudo abaixo é rocha, e é sobre ela que o nome se apoia —
@@ -48,9 +50,9 @@ const CRAWL_BASE_Y = 118
  */
 const HORIZON = 346
 
-const NAME_Y = 400
-const ROTATING_Y = 434
-const CHIPS_Y = 416
+const NAME_Y = 392
+const ROTATING_Y = 448
+const CHIPS_Y = 420
 const CHIPS_RIGHT = 956
 
 /** Largura aproximada de texto na fonte sans — só para quebrar linha. */
@@ -194,6 +196,35 @@ function rotating(words, t, y) {
     .join('')
 }
 
+/**
+ * Sabre deitado sob o nome, acendendo da empunhadura para a direita — faz as
+ * vezes de sublinhado. Antes era uma lâmina vertical na borda esquerda; deitada
+ * ela ancora o bloco de identidade em vez de competir com o crawl.
+ *
+ * A ignição usa `values` com begin=0 (e não begin atrasado): com begin
+ * atrasado a lâmina apareceria inteira no primeiro instante e só depois
+ * "recolheria" para acender.
+ */
+function nameSaber(t, { x, y, len }) {
+  const ignite = (attr, full) =>
+    `<animate attributeName="${attr}" values="0;0;${full}" keyTimes="0;0.55;1" dur="1.6s" fill="freeze"/>`
+  return `
+    <g>
+      <rect x="${x - 40}" y="${y - 5}" width="36" height="10" rx="2.5" fill="${t.hilt}"/>
+      <rect x="${x - 30}" y="${y - 5}" width="2.5" height="10" fill="${t.hiltDark}"/>
+      <rect x="${x - 22}" y="${y - 5}" width="2.5" height="10" fill="${t.hiltDark}"/>
+      <rect x="${x - 14}" y="${y - 3}" width="6" height="6" rx="1" fill="${t.hiltDark}"/>
+      <rect x="${x - 5}" y="${y - 6}" width="6" height="12" rx="1.5" fill="${t.hiltDark}"/>
+      <rect x="${x}" y="${y - 6}" width="${len}" height="12" rx="6" fill="${t.saberGlow}" opacity="${t.saberHalo}" filter="${ref('blade', t)}">
+        ${ignite('width', len)}
+        <animate attributeName="opacity" values="${t.saberHalo};${(t.saberHalo * 0.75).toFixed(2)};${t.saberHalo}" dur="0.4s" begin="1.6s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="${x}" y="${y - 2}" width="${len}" height="4" rx="2" fill="${t.saberCore}">
+        ${ignite('width', len)}
+      </rect>
+    </g>`
+}
+
 function header(profile, t) {
   const { name, header: h } = profile
 
@@ -215,6 +246,7 @@ function header(profile, t) {
       <rect x="0" y="${CRAWL_TOP}" width="${W}" height="${CRAWL_BOTTOM - CRAWL_TOP}"
             fill="${ref('crawlFade', t)}"/>
     </mask>
+    ${scanlineDef(id('scan', t), '#000', 0.2)}
     <clipPath id="${id('card', t)}">
       <rect x="0" y="0" width="${W}" height="${H}" rx="18"/>
     </clipPath>
@@ -223,6 +255,9 @@ function header(profile, t) {
   <g clip-path="${ref('card', t)}">
     ${skyGlow(t, { w: W, h: H })}
     <g>${starfield(t, { w: W, h: H, seed: SEED })}</g>
+    ${ringedPlanet({ cx: 112, cy: 168, r: 30, id: id('planet', t) })}
+    ${wedgeShip({ x: 688, y: 112, scale: 0.72, rotate: -14, hull: '#1a1e25', edge: t.accent, filter: ref('blade', t) })}
+    ${bolts({ from: [770, 128], to: [540, 352], filter: ref('blade', t) })}
     ${emberGlow(t, { cx: W / 2, cy: HORIZON + 26, rx: W * 0.6, ry: 132 })}
     ${lavaHorizon(t, { w: W, bottom: H, base: HORIZON, seed: SEED })}
     ${embers(t, { w: W, base: HORIZON - 22, seed: SEED })}
@@ -231,9 +266,8 @@ function header(profile, t) {
          garante o contraste do nome mesmo onde uma crista sobe mais alto. -->
     <rect x="0" y="${H - 132}" width="${W}" height="132" fill="${ref('scrim', t)}"/>
 
-    ${saber(t, { x: 44, top: 40, bottom: 430 })}
 
-    <text x="${W / 2}" y="46" text-anchor="middle" font-family="${MONO}" font-size="14.5"
+    <text x="${W / 2}" y="60" text-anchor="middle" font-family="${MONO}" font-size="14.5"
           letter-spacing="0.6" fill="${t.opening}" opacity="0">
       <animate attributeName="opacity" to="1" dur="1.2s" fill="freeze"/>
       ${esc(h.opening)}
@@ -247,8 +281,21 @@ function header(profile, t) {
       ${esc(name)}
     </text>
 
+    ${nameSaber(t, { x: 82, y: NAME_Y + 20, len: 318 })}
     ${rotating(h.rotating, t, ROTATING_Y)}
     ${chips(h.chips, t, { y: CHIPS_Y, right: CHIPS_RIGHT })}
+
+    ${hyperspaceExit({ cx: W / 2, cy: 190, w: W, h: H, seed: SEED })}
+
+    <!-- HUD do terminal -->
+    <rect width="${W}" height="${H}" fill="${ref('scan', t)}"/>
+    <path d="${brackets(14, 14, W - 28, H - 28, 24)}" fill="none" stroke="${t.accent}" stroke-width="2" opacity="0.55"/>
+    <circle cx="38" cy="34" r="3.5" fill="${t.accent}">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+    <text x="50" y="38" font-family="${MONO}" font-size="11" letter-spacing="2" fill="${t.dim}">${esc(h.hudLeft ?? 'ARQUIVO IMPERIAL')}</text>
+    ${signalBars({ x: W - 72, y: 39, color: t.accent, dim: t.border })}
+    <text x="${W - 82}" y="38" text-anchor="end" font-family="${MONO}" font-size="11" letter-spacing="2" fill="${t.dim}">${esc(h.hudRight ?? '')}</text>
 
     <rect x="0" y="${H - 3}" width="${W}" height="3" fill="${ref('rule', t)}"/>
     <rect x="0" y="0" width="${W}" height="${H}" rx="18" fill="none"

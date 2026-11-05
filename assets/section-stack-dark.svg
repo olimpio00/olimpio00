@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="92" viewBox="0 0 1000 92" role="img" aria-label="Arsenal">
+  <title>Arsenal</title>
+  <defs>
+    <linearGradient id="bg-dark-sec-stack" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1c0608"/>
+      <stop offset="0.45" stop-color="#0b0405"/>
+      <stop offset="1" stop-color="#010409"/>
+    </linearGradient>
+    <linearGradient id="sweep-dark-sec-stack" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff3b30" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#ff3b30" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#ff3b30" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="rule-dark-sec-stack" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff3b30"/>
+      <stop offset="0.6" stop-color="#e5484d" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#e5484d" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="blade-dark-sec-stack" x="-20%" y="-300%" width="140%" height="700%"><feGaussianBlur stdDeviation="3"/></filter>
+    
+    <pattern id="scan-dark-sec-stack" width="4" height="3" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="#000" opacity="0.25"/>
+    </pattern>
+    <clipPath id="clip-dark-sec-stack"><path d="M 17 1 H 999 V 75 L 983 91 H 1 V 17 Z"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#clip-dark-sec-stack)">
+    <rect width="1000" height="92" fill="url(#bg-dark-sec-stack)"/>
+    <g><circle cx="565.2" cy="36.7" r="0.83" fill="#ffffff" opacity="0.47"></circle><circle cx="145.6" cy="40.5" r="1.39" fill="#ffffff" opacity="0.26"><animate attributeName="opacity" values="0.26;0.05;0.26" dur="4.8s" begin="3.9s" repeatCount="indefinite"/></circle><circle cx="856.1" cy="62.8" r="0.98" fill="#ffffff" opacity="0.29"></circle><circle cx="391.4" cy="58.6" r="1.06" fill="#ffffff" opacity="0.29"></circle><circle cx="900.1" cy="0.5" r="0.63" fill="#ffffff" opacity="0.44"></circle><circle cx="291.8" cy="75.4" r="1.19" fill="#ffffff" opacity="0.50"></circle><circle cx="50.1" cy="78.5" r="0.55" fill="#ffffff" opacity="0.30"></circle><circle cx="935.7" cy="44.9" r="1.04" fill="#ffffff" opacity="0.43"></circle><circle cx="30.9" cy="44.2" r="0.43" fill="#ffffff" opacity="0.50"></circle><circle cx="354.5" cy="7.7" r="0.45" fill="#ffffff" opacity="0.35"></circle><circle cx="440.5" cy="42.8" r="1.08" fill="#ffffff" opacity="0.36"></circle><circle cx="486.4" cy="7.0" r="0.47" fill="#ffffff" opacity="0.46"></circle><circle cx="878.4" cy="67.7" r="1.17" fill="#ffffff" opacity="0.45"></circle><circle cx="445.0" cy="5.9" r="0.66" fill="#ffffff" opacity="0.47"></circle><circle cx="304.9" cy="78.9" r="0.85" fill="#ffffff" opacity="0.40"></circle><circle cx="865.5" cy="9.8" r="0.82" fill="#ffffff" opacity="0.37"></circle><circle cx="654.6" cy="91.5" r="0.49" fill="#ffffff" opacity="0.31"></circle><circle cx="747.1" cy="5.8" r="1.21" fill="#ffffff" opacity="0.47"></circle><circle cx="119.5" cy="81.5" r="0.65" fill="#ffffff" opacity="0.43"></circle><circle cx="407.4" cy="38.3" r="1.30" fill="#ffffff" opacity="0.30"></circle><circle cx="503.9" cy="41.1" r="1.37" fill="#ffffff" opacity="0.47"><animate attributeName="opacity" values="0.47;0.09;0.47" dur="3.0s" begin="2.3s" repeatCount="indefinite"/></circle><circle cx="659.7" cy="36.6" r="0.68" fill="#ffffff" opacity="0.38"></circle><circle cx="311.9" cy="34.8" r="1.13" fill="#ffffff" opacity="0.44"></circle><circle cx="433.5" cy="66.2" r="0.93" fill="#ffffff" opacity="0.44"></circle><circle cx="505.9" cy="69.6" r="0.77" fill="#ffffff" opacity="0.33"></circle><circle cx="904.6" cy="32.1" r="1.01" fill="#ffffff" opacity="0.36"></circle></g>
+
+    <!-- varredura do scanner -->
+    <rect x="-220" y="0" width="220" height="92" fill="url(#sweep-dark-sec-stack)">
+      <animateTransform attributeName="transform" type="translate" values="0 0; 1440 0" dur="6.5s" begin="0.8s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- número do arquivo -->
+    <path d="M 28 16 H 76 V 66 L 66 76 H 18 V 26 Z" fill="#010409" stroke="#ff3b30" stroke-opacity="0.7" stroke-width="1.5"/>
+    <text x="47" y="34" text-anchor="middle" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="9" letter-spacing="2" fill="#9a8687">ARQ</text>
+    <text x="47" y="62" text-anchor="middle" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="24" font-weight="700" fill="#ff5b52">02</text>
+
+    <text x="96" y="48" font-family="'Segoe UI','SF Pro Display',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="29" font-weight="800" letter-spacing="2.5" fill="#f5f7fa">ARSENAL</text>
+    <text x="98" y="70" font-family="ui-monospace,'SF Mono','Cascadia Code',Consolas,'Liberation Mono',monospace" font-size="11" letter-spacing="2.2" fill="#9a8687">EQUIPAMENTO HOMOLOGADO PARA COMBATE</text>
+
+    <path d="M 758 22 V 31 M 758 22 L 752 31 M 762 22 H 768 M 765 22 V 31 M 775 22 V 31 M 772 26.5 H 778 M 772 22 L 778 31 M 782 22 L 788 31 M 788 22 V 31 M 801 22 L 807 31 M 801 31 H 807 M 801 22 V 31 M 811 22 H 817 M 811 31 H 817 M 811 26.5 H 817 M 821 22 V 31 M 824 22 V 31 M 821 26.5 H 827 M 843 22 V 31 M 840 22 H 846 M 840 31 H 846 M 856 22 L 850 31 M 856 22 V 31 M 860 26.5 H 866 M 860 22 V 31 M 860 22 H 866 M 879 22 H 885 M 885 22 L 879 31 M 889 22 V 31 M 889 22 H 895 M 905 22 V 31 M 902 22 V 31 M 915 22 V 31 M 909 22 L 915 31 M 919 22 L 925 31 M 925 22 V 31 M 938 22 H 944 M 941 22 V 31 M 954 22 L 948 31 M 948 26.5 H 954 M 961 22 V 31 M 964 22 V 31 M 958 22 H 964" fill="none" stroke="#c2b3b3" stroke-width="1.4"
+          stroke-linecap="square" opacity="0.4"/>
+    <rect x="796" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="1.2s" begin="0.00s" repeatCount="indefinite"/></rect><rect x="808" y="52" width="8" height="8" fill="#2a1113" opacity="1"></rect><rect x="820" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="2.7s" begin="0.74s" repeatCount="indefinite"/></rect><rect x="832" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="2.4s" begin="1.11s" repeatCount="indefinite"/></rect><rect x="844" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="2.1s" begin="1.48s" repeatCount="indefinite"/></rect><rect x="856" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="1.8s" begin="1.85s" repeatCount="indefinite"/></rect><rect x="868" y="52" width="8" height="8" fill="#2a1113" opacity="1"></rect><rect x="880" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="1.2s" begin="0.59s" repeatCount="indefinite"/></rect><rect x="892" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="3.0s" begin="0.96s" repeatCount="indefinite"/></rect><rect x="904" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="2.7s" begin="1.33s" repeatCount="indefinite"/></rect><rect x="916" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="2.4s" begin="1.70s" repeatCount="indefinite"/></rect><rect x="928" y="52" width="8" height="8" fill="#2a1113" opacity="1"></rect><rect x="940" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="1.8s" begin="0.44s" repeatCount="indefinite"/></rect><rect x="952" y="52" width="8" height="8" fill="#ff3b30" opacity="0.75"><animate attributeName="opacity" values="0.75;0.2;0.75" dur="1.5s" begin="0.81s" repeatCount="indefinite"/></rect>
+
+    <rect width="1000" height="92" fill="url(#scan-dark-sec-stack)"/>
+    <rect x="0" y="89" width="1000" height="3" fill="url(#rule-dark-sec-stack)"/>
+  </g>
+  <path d="M 17 1 H 999 V 75 L 983 91 H 1 V 17 Z" fill="none" stroke="#2a1113" stroke-width="2"/>
+</svg>
